@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7306582669576726437}
-  - component: {fileID: 4526320941279692982}
+  - component: {fileID: 5232199556229143159}
   m_Layer: 0
   m_Name: BaseBulletShooter
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4526320941279692982
+--- !u!114 &5232199556229143159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7306582669576726436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc6133953b3350d4a802cfb90985022a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c2495122c67d2743af16803b82a9b1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BulletPrefab: {fileID: 638026134994171152, guid: f1ba4a78712a4a2458b17fc109cf833e, type: 3}
+  m_Cooldown: 0.2
+  m_BulletPrefab: {fileID: 7306582669576726436}
   m_BulletSpawner: {fileID: 7306582669576726437}
-  m_PoolSize: 3
-  m_BulletCooldown: 0.5
+  m_PoolSize: 10
