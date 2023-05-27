@@ -31,17 +31,17 @@ public class BotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null) {
+        if (target != null){
             agent.SetDestination(target.transform.position);
         }
         //debug input
-        // if(Input.GetMouseButtonDown(0)) {
-        //     Ray movePosition = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //     Debug.Log(movePosition);
-        //     if (Physics.Raycast(movePosition, out var hitInfo)){
-        //         agent.SetDestination(hitInfo.point);
-        //     }
-        // }
+        //if (Input.GetMouseButtonDown(0)) {
+        //    Ray movePosition = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    Debug.Log(movePosition);
+        //    if (Physics.Raycast(movePosition, out var hitInfo)){
+        //        agent.SetDestination(hitInfo.point);
+        //    }
+        //}
 
         if (agent.remainingDistance >= minDistance) {
             Vector3 directionVector = (agent.steeringTarget-rb.position).normalized;
