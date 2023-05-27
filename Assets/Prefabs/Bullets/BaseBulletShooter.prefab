@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Cooldown: 0.2
-  m_BulletPrefab: {fileID: 7306582669576726436}
+  m_BulletPrefab: {fileID: 638026134994171152, guid: f1ba4a78712a4a2458b17fc109cf833e, type: 3}
   m_BulletSpawner: {fileID: 7306582669576726437}
   m_PoolSize: 10
