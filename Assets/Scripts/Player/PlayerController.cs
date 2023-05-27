@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float DashDistance = 5f;
     public float DashDuration = 1f;
     public float DashCooldown = 4f;
+    public float MaxVelocity = 1f;
+    public float SlowDownModifier = 1f;
 
     private Vector3 m_Inputs = Vector3.zero;
     
@@ -23,10 +25,12 @@ public class PlayerController : MonoBehaviour
     private Sequence m_jumpSequence;
 
     private Transform m_body;
+    private Rigidbody m_Rigidbody;
 
     void Start()
     {
-        m_body = transform.GetChild(0);
+        m_body = transform;
+        m_Rigidbody = transform.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -66,6 +70,15 @@ public class PlayerController : MonoBehaviour
         {
             m_DashCooldown -= Time.fixedDeltaTime;
         }
-        transform.position = transform.position + m_Inputs * Speed * Time.fixedDeltaTime;
+
+        //transform.position = transform.position + m_Inputs * Speed * Time.fixedDeltaTime;
+        m_Rigidbody.AddForce(m_Inputs * Speed * Time.fixedDeltaTime);
+
+        Vector3 velocity = m_Rigidbody.velocity;
+        m_Rigidbody.AddForce(-velocity * SlowDownModifier * Time.fixedDeltaTime);
+        velocity.x = Mathf.Clamp(velocity.x, -MaxVelocity, MaxVelocity);
+        velocity.y = Mathf.Clamp(velocity.y, -MaxVelocity, MaxVelocity);
+        velocity.z = Mathf.Clamp(velocity.z, -MaxVelocity, MaxVelocity);
+        m_Rigidbody.velocity = velocity;
     }
 }
