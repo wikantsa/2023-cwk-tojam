@@ -160,6 +160,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5562864294534758191}
     m_Modifications:
+    - target: {fileID: 4526320941279692982, guid: bae618da98182904a8a5589a078917a2, type: 3}
+      propertyPath: m_BulletCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7306582669576726436, guid: bae618da98182904a8a5589a078917a2, type: 3}
       propertyPath: m_Name
       value: BaseBulletShooter

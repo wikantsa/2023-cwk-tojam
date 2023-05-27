@@ -175,5 +175,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 0}
-  travelSpeed: 10
+  travelSpeed: 25
   TTK: 3
