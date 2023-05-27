@@ -51,15 +51,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 35000
-  JumpHeight: 6
-  JumpDuration: 0.4
-  GroundDistance: 0.2
-  DashDistance: 5
-  DashForce: 1000
-  DashDuration: 1
-  DashCooldown: 2
+  JumpForce: 2400
+  DashForce: 2400
+  DashDuration: 0.15
+  DashCooldown: 1
   MaxVelocity: 5
-  SlowDownModifier: 700
+  SlowDownModifier: 900
+  GravityModifier: 200
 --- !u!114 &1183010520648519173
 MonoBehaviour:
   m_ObjectHideFlags: 0
