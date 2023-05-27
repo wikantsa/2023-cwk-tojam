@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 public enum SceneIndices
 {
     Title = 0,
-    Main = 1
+    Main = 1,
+    SeanScene = 2,
+    ZeeshanPlayground = 3
+
 }
 
 public class UIManager : MonoBehaviour
@@ -15,6 +18,10 @@ public class UIManager : MonoBehaviour
     public RectTransform _start;
     public RectTransform _exit;
     public List<RectTransform> cursorPositions;
+
+    //public GameObject robertsArm;
+    // add particle effect or something here that is fired
+    // when start or exit are selected
 
     private float m_input = 0f;
     private const float DELAY = 0.2f;
@@ -69,7 +76,7 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync((int)SceneIndices.Main);
+        SceneManager.LoadSceneAsync((int)SceneIndices.ZeeshanPlayground);
     }
 
     public void ExitGame() {
