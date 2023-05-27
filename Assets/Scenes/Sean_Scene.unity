@@ -353,7 +353,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -435,6 +435,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1836330807}
   offset: {x: -10, y: 8, z: -10}
+  CatchUpSpeed: 2
+  ShakeDuration: 0.4
+  ShakeStrength: 10
+  ShakeVibrato: 10
+  ShakeRandomness: 40
 --- !u!1 &387489588
 GameObject:
   m_ObjectHideFlags: 0
