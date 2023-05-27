@@ -1,39 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
     public float Speed = 5f;
-    public float JumpHeight = 6f;
-    public float JumpDuration = 3f;
-    public float GroundDistance = 0.2f;
-    public float DashDistance = 5f;
+    public float JumpForce = 1f;
     public float DashForce = 1f;
     public float DashDuration = 1f;
     public float DashCooldown = 4f;
     public float MaxVelocity = 1f;
     public float SlowDownModifier = 1f;
+    public float GravityModifier = 1f;
 
     private Vector3 m_Inputs = Vector3.zero;
     
-    private bool m_Jumping = false;
-    private bool m_Dashing = false;
     private float m_DashTimer = 0f;
+    private Vector3 m_DashDirection;
     private float m_DashCooldown = 0f;
-
-    private Sequence m_dashSequence;
-    private Sequence m_jumpSequence;
+    private Vector3 m_LastPosition;
 
     private Transform m_body;
     private Rigidbody m_Rigidbody;
-    private Vector3 m_movementVector;
 
     void Start()
     {
         m_body = transform;
         m_Rigidbody = transform.GetComponent<Rigidbody>();
+        m_LastPosition = m_body.position;
     }
 
     void Update()
@@ -43,46 +37,46 @@ public class PlayerController : MonoBehaviour
         m_Inputs.x = Input.GetAxis("Horizontal");
         m_Inputs.z = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.E) && m_DashCooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.E) && m_DashCooldown <= 0 && m_DashTimer <= 0)
         {
-            //m_Rigidbody.AddForce(m_Inputs * DashForce);
-            /*
-            m_Dashing = true;
+            m_DashTimer = DashDuration;
             m_DashCooldown = DashCooldown;
-            m_jumpSequence.TogglePause();
-            m_dashSequence = DOTween.Sequence();
-            m_dashSequence.Append(transform.DOBlendableMoveBy(DashDistance * m_Inputs, DashDuration).SetEase(Ease.InOutQuad));
-            m_dashSequence.OnComplete(() => { m_Dashing = false; m_jumpSequence.TogglePause();});
-            */
+            m_DashDirection = m_Inputs.normalized;
         }
             
-        if (Input.GetKeyDown(KeyCode.Space) && !m_Jumping)
+        if (Input.GetKeyDown(KeyCode.Space) && m_body.position.y <= 1.05f)
         {
-            
-            /*
-            m_Jumping = true;
-            m_jumpSequence = DOTween.Sequence();
-            m_jumpSequence.Append(m_body.GetChild(0).DOBlendableLocalMoveBy(JumpHeight * Vector3.up, JumpDuration/2).SetEase(Ease.OutQuad));
-            m_jumpSequence.Append(m_body.GetChild(0).DOBlendableLocalMoveBy(JumpHeight * -Vector3.up, JumpDuration/2).SetEase(Ease.InQuad));
-            m_jumpSequence.OnComplete(() => { m_Jumping = false; });
-            */
+            m_Rigidbody.AddForce(Vector3.up * JumpForce);
         }
+
+        if(m_DashCooldown > 0)
+        {
+            m_DashCooldown -= Time.deltaTime;
+        }
+
+        m_LastPosition = m_body.position;
     }
 
     void FixedUpdate()
     {
-        if(m_DashCooldown > 0)
-        {
-            m_DashCooldown -= Time.fixedDeltaTime;
-        }
-
+        // Add movement Velocity
         m_Rigidbody.AddForce(m_Inputs * Speed * Time.fixedDeltaTime);
 
+        // Slow down in directions you are not gaining velocity in
         Vector3 velocity = m_Rigidbody.velocity;
+        float yVelocity = m_Rigidbody.velocity.y;
+        velocity.y = 0;
         m_Rigidbody.AddForce(-velocity * SlowDownModifier * Time.fixedDeltaTime);
         velocity.x = Mathf.Clamp(velocity.x, -MaxVelocity, MaxVelocity);
-        velocity.y = Mathf.Clamp(velocity.y, -MaxVelocity, MaxVelocity);
         velocity.z = Mathf.Clamp(velocity.z, -MaxVelocity, MaxVelocity);
+        velocity.y = yVelocity - GravityModifier * Time.fixedDeltaTime;
         m_Rigidbody.velocity = velocity;
+
+        // Add dash force
+        if(m_DashTimer > 0)
+        {
+            m_Rigidbody.AddForce(m_DashDirection * DashForce);
+            m_DashTimer -= Time.fixedDeltaTime;
+        }
     }
 }
