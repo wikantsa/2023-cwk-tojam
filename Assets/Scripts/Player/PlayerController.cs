@@ -75,8 +75,6 @@ public class PlayerController : MonoBehaviour
         {
             m_DashCooldown -= Time.fixedDeltaTime;
         }
-     
-        Debug.Log(m_Inputs);
 
         m_Rigidbody.AddForce(m_Inputs * Speed * Time.fixedDeltaTime);
 
