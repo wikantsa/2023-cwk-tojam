@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShootController : MonoBehaviour
 {
+    public float RotateSpeed = 10f;
     public List<BaseShooter> m_ShooterList;
 
     Plane m_Plane;
@@ -32,6 +33,10 @@ public class ShootController : MonoBehaviour
             characterPosition.y = 0;
             m_AimDirection = hitPoint - characterPosition;
         }
+
+        float singleStep = RotateSpeed * Time.deltaTime;
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, m_AimDirection, singleStep, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDirection);
 
         if (Input.GetButton("Fire1"))
         {
