@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
         m_Inputs = Vector3.zero;
         m_Inputs.x = Input.GetAxis("Horizontal");
         m_Inputs.z = Input.GetAxis("Vertical");

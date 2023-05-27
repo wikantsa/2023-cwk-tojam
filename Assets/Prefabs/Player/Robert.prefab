@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5562864294534758189}
   - component: {fileID: 7043778119461884070}
   - component: {fileID: 5562864294721126509}
+  - component: {fileID: 8458104888951661601}
   m_Layer: 0
   m_Name: Robert
   m_TagString: Player
@@ -154,6 +155,14 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!81 &8458104888951661601
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562864294721126508}
+  m_Enabled: 1
 --- !u!1001 &3204916820523784297
 PrefabInstance:
   m_ObjectHideFlags: 0
