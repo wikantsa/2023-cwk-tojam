@@ -58,6 +58,7 @@ MonoBehaviour:
   MaxVelocity: 5
   SlowDownModifier: 900
   GravityModifier: 200
+  GridLockedMovement: 1
 --- !u!114 &1183010520648519173
 MonoBehaviour:
   m_ObjectHideFlags: 0
