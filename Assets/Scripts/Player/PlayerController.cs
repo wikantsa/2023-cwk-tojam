@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float MaxVelocity = 1f;
     public float SlowDownModifier = 1f;
     public float GravityModifier = 1f;
+    public bool GridLockedMovement = true;
 
     private Vector3 m_Inputs = Vector3.zero;
     
@@ -36,6 +37,11 @@ public class PlayerController : MonoBehaviour
         m_Inputs = Vector3.zero;
         m_Inputs.x = Input.GetAxis("Horizontal");
         m_Inputs.z = Input.GetAxis("Vertical");
+
+        if(!GridLockedMovement)
+        {
+            m_Inputs = Quaternion.AngleAxis(45f, Vector3.up) * m_Inputs;
+        }
 
         if (Input.GetKeyDown(KeyCode.E) && m_DashCooldown <= 0 && m_DashTimer <= 0)
         {
