@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool GridLockedMovement = true;
 
     public Animator m_Animator;
+    public TrailRenderer m_TrailRenderer;
 
     private Vector3 m_Inputs = Vector3.zero;
     
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
             m_DashTimer = DashDuration;
             m_DashCooldown = DashCooldown;
             m_DashDirection = m_Inputs.normalized;
+            m_TrailRenderer.emitting = true;
             dashEvent.Invoke();
         }
             
@@ -93,6 +95,9 @@ public class PlayerController : MonoBehaviour
         {
             m_Rigidbody.AddForce(m_DashDirection * DashForce);
             m_DashTimer -= Time.fixedDeltaTime;
+
+            if (m_DashTimer <= 0)
+                m_TrailRenderer.emitting = false;
         }
     }
 }
