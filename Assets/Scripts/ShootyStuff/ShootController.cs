@@ -14,6 +14,9 @@ public class ShootController : MonoBehaviour
     bool controllerMode;
     Vector3 prevMousePosition;
 
+    [HideInInspector]
+    public bool IsShooting;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,11 +81,13 @@ public class ShootController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            IsShooting = true;
             m_Animator.SetBool("FireMode", true);
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
+            IsShooting = false;
             m_Animator.SetBool("FireMode", false);
         }
 

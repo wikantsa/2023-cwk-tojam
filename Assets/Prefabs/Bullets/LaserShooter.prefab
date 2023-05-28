@@ -260,6 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_range: 40
   m_damageDone: 3
-  m_laserThickness: 0.2
+  m_laserThickness: 0.5
   m_animator: {fileID: 2037171465}
   m_laserSprite: {fileID: 7848385187649229265}
