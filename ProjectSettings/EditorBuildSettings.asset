@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/zeeshan_playground.unity
     guid: 5577bc48cb47e9e439bbb390fafe933f
+  - enabled: 1
+    path: Assets/Scenes/Adam_Scene.unity
+    guid: 59ef74b2fec36094ab94e0519fc32dfb
   m_configObjects: {}
