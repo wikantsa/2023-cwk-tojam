@@ -500,7 +500,6 @@ GameObject:
   - component: {fileID: 2731765153422636740}
   - component: {fileID: 2731765153422636741}
   - component: {fileID: 2731765153422636742}
-  - component: {fileID: 902931053032800432}
   m_Layer: 5
   m_Name: titlescreen-canvas
   m_TagString: Untagged
@@ -593,25 +592,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &902931053032800432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2731765153422636743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4223d2cd2ef910141887ecf1e4c9749f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cursor: {fileID: 2648080773888713370}
-  _start: {fileID: 2731765152769601561}
-  _exit: {fileID: 50424441926143910}
-  cursorPositions:
-  - {fileID: 1846927426278612332}
-  - {fileID: 7603777279615478728}
-  TargetSceneIndex: 4
 --- !u!1 &4557255775762232215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8865321034852251993, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1527
+      value: 1009.6
       objectReference: {fileID: 0}
     - target: {fileID: 8865321034852251993, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
       propertyPath: m_LocalPosition.y

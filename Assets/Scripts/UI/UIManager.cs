@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public RectTransform _cursor;
-    public RectTransform _start;
-    public RectTransform _exit;
-    public List<RectTransform> cursorPositions;
+    public RectTransform _cursor = null;
+    public RectTransform _start = null;
+    public RectTransform _exit = null;
+    public List<RectTransform> cursorPositions = null;
 
     public int TargetSceneIndex = 4;
 
@@ -35,9 +35,10 @@ public class UIManager : MonoBehaviour
         UIManager.DontDestroyOnLoad(this);
 
         // set default cursor position
-        _cursor.anchoredPosition = cursorPositions[cursorPointer].anchoredPosition;
-
-        StartCoroutine("HandleTitleInputs");
+        if (_cursor) {
+            _cursor.anchoredPosition = cursorPositions[cursorPointer].anchoredPosition;
+            StartCoroutine("HandleTitleInputs");
+        }
     }
 
     private void Update()
