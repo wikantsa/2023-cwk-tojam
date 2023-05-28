@@ -5,14 +5,16 @@ using UnityEngine;
 public class BotManager : MonoBehaviour
 {
     public GameObject playerObject;
-    public GameObject ChaseBotPrefab;
+    public GameObject ZombieBotPrefab;
+    public GameObject BigBotPrefab; //O Lawd he comin
     public int NumberofEnemies;
     public float SpawnCooldown;
     public GameObject[] SpawnPoints;
 
 
-    private List<GameObject> ActiveEnemies;
 
+    private List<GameObject> ActiveEnemies;
+    private float timer;
 
     public void KillMe(GameObject obj) {
         ActiveEnemies.Remove(obj);
@@ -23,24 +25,45 @@ public class BotManager : MonoBehaviour
     void Start()
     {
         ActiveEnemies = new List<GameObject>();
+        timer = SpawnCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
         //spawn enemies if not enough
-        if (ActiveEnemies.Count < NumberofEnemies) {
-            Debug.Log("SPAWNING");
-            Vector3 spawnPoint;
-            if (SpawnPoints.Length < 1) {
-                spawnPoint = Vector3.zero;
+        if (timer < 0 && ActiveEnemies.Count < NumberofEnemies) {
+            Vector3 spawnPoint = GetSpawnPoint();
+            int EnemyTableRoll = Random.Range(0, 10);
+            if (EnemyTableRoll > 0) {
+                SpawnZombieBot(spawnPoint);
             } else {
-                spawnPoint= SpawnPoints[Random.Range(0, SpawnPoints.Length)].transform.position;
+                SpawnBigBot(spawnPoint);
             }
-            GameObject newEnemey = Instantiate(ChaseBotPrefab, spawnPoint, Quaternion.identity);
+        }
+    }
+
+    Vector3 GetSpawnPoint(){
+        Vector3 spawnPoint;
+        if (SpawnPoints.Length < 1) {
+            spawnPoint = Vector3.zero;
+        } else {
+            spawnPoint= SpawnPoints[Random.Range(0, SpawnPoints.Length)].transform.position;
+        }
+        return spawnPoint;
+    }
+
+    void SpawnZombieBot(Vector3 spawnPoint) {
+            GameObject newEnemey = Instantiate(ZombieBotPrefab, spawnPoint, Quaternion.identity);
             ActiveEnemies.Add(newEnemey);
             newEnemey.GetComponent<BotController>().SetTarget(playerObject);
             newEnemey.GetComponent<Killable>().SetController(this);
-        }
+    }
+     void SpawnBigBot(Vector3 spawnPoint) {
+            GameObject newEnemey = Instantiate(BigBotPrefab, spawnPoint, Quaternion.identity);
+            ActiveEnemies.Add(newEnemey);
+            newEnemey.GetComponent<BotController>().SetTarget(playerObject);
+            newEnemey.GetComponent<Killable>().SetController(this);
     }
 }
