@@ -2,33 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System.Linq;
 
 public class SFXManager : MonoBehaviour
 {
-    public List<SFXLookup> SFX;
+    public List<SFXLookup> Sounds;
+    public AudioSource Source;
 
-    // Start is called before the first frame update
-    void Start()
+    public void PlayPlayerSound(string action)
     {
-        
+        Source.clip = Sounds.First(s => s.Action == action).Clip;
+        Source.Play();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
-
-public enum SFX
-{
-    None = 0,
-    BasicShot = 1
-
 }
 
  [Serializable]
  public struct SFXLookup {
-     public SFX SFX;
+     public string Action;
      public AudioClip Clip;
  }

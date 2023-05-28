@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody m_Rigidbody;
 
     [Header("Invoke upon dashing")]
-    public UnityEvent dashEvent;
+    public PlayerEvent dashEvent;
 
 
     void Start()
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
             m_DashTimer = DashDuration;
             m_DashCooldown = DashCooldown;
             m_DashDirection = m_Inputs.normalized;
-            dashEvent.Invoke();
+            dashEvent.Invoke("dash");
         }
             
         if (Input.GetKeyDown(KeyCode.Space) && m_body.position.y <= 1.05f)

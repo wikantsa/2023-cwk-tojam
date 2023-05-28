@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShootController : MonoBehaviour
 {
     public float RotateSpeed = 10f;
     public List<BaseShooter> m_ShooterList;
+    public PlayerEvent shootEvent;
 
     Plane m_Plane;
     Vector3 m_AimDirection = Vector3.zero;
@@ -44,6 +46,7 @@ public class ShootController : MonoBehaviour
             {
                 if (!shooter.IsOnCooldown)
                 {
+                    shootEvent.Invoke("shoot");
                     shooter.ShootBullet();
                 }
             }

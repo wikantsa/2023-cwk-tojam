@@ -28,8 +28,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6655366187188267500}
+  m_Children: []
   m_Father: {fileID: 5562864294534758191}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e882a7dbbae89f4ab5a6d3f335e9fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _indicator: {fileID: 6821930687333863700}
+  _indicator: {fileID: 6821930687333863700, guid: 00000000000000000000000000000000, type: 0}
   _player: {fileID: 5562864294721126510}
   _green: {fileID: 2100000, guid: dce6ccab72f0cb64895c08c9cb3d8457, type: 2}
   _red: {fileID: 2100000, guid: f7b3ed34220f43b4aaf5a3f5ee801c97, type: 2}
@@ -140,6 +139,9 @@ MonoBehaviour:
   RotateSpeed: 10
   m_ShooterList:
   - {fileID: 7270682371215589918}
+  shootEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!33 &5562864294534758163
 MeshFilter:
   m_ObjectHideFlags: 0
