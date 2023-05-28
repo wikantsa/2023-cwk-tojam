@@ -7,6 +7,7 @@ using System.Linq;
 public class SFXManager : MonoBehaviour
 {
     public bool Muted = false;
+    public float GlobalVolume = 1;
     public List<ClipLookup> Clips;
     private List<AudioSource> m_sources;
 
@@ -33,6 +34,7 @@ public class SFXManager : MonoBehaviour
         if(!Muted)
         {
             AudioSource source = m_sources.First(s => s.isPlaying == false);
+            source.volume = GlobalVolume;
             source.clip = Clips.First(c => c.Action == action).Clip;
             source.Play();
         }
