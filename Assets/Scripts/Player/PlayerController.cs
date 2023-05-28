@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
 
     private Transform m_body;
     private Rigidbody m_Rigidbody;
+
+    [Header("Invoke upon dashing")]
+    public UnityEvent dashEvent;
+
 
     void Start()
     {
@@ -47,6 +52,7 @@ public class PlayerController : MonoBehaviour
             m_DashTimer = DashDuration;
             m_DashCooldown = DashCooldown;
             m_DashDirection = m_Inputs.normalized;
+            dashEvent.Invoke();
         }
             
         if (Input.GetKeyDown(KeyCode.Space) && m_body.position.y <= 1.05f)
