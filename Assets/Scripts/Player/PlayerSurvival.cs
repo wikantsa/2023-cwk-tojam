@@ -14,6 +14,7 @@ public class PlayerSurvival : MonoBehaviour
     public float BatteryPower = 100;
     public float InvulnerabilityWindow = 1f;
     public float BatteryDrainRate = 1f;
+    public float ShootDrainRateMultiplier = 1f;
     public float BatteryPowerGainedOnEat = 50;
 
     public SkinnedMeshRenderer[] CharacterRenderers;
@@ -47,6 +48,8 @@ public class PlayerSurvival : MonoBehaviour
     [HideInInspector]
     public Power PowerToEat;
 
+    private int currentPowerLevel = 9;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +77,10 @@ public class PlayerSurvival : MonoBehaviour
         }
 
         if (m_ShootController.IsShooting)
+        {
+            m_CurrentBatteryPower -= (BatteryDrainRate + currentPowerLevel * ShootDrainRateMultiplier) * Time.deltaTime;
+        }
+        else
         {
             m_CurrentBatteryPower -= BatteryDrainRate * Time.deltaTime;
         }
@@ -139,6 +146,7 @@ public class PlayerSurvival : MonoBehaviour
 
     void ReducePowerLevel(Power power)
     {
+        currentPowerLevel--;
         m_PowerLevels[power]--;
 
         switch (power)
