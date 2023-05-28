@@ -52,7 +52,7 @@ public class Missile : BaseBullet
 
             var missilePos = transform.position;
             var targetPos = target.transform.position;
-            targetPos.y = missilePos.y;
+            targetPos.y += 0.5f;
             var aimDirection = targetPos - missilePos;
 
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, aimDirection, singleStep, 0.0f);
