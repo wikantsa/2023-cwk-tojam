@@ -48,8 +48,9 @@ public class PlayerController : MonoBehaviour
             m_Inputs = Quaternion.AngleAxis(45f, Vector3.up) * m_Inputs;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && m_DashCooldown <= 0 && m_DashTimer <= 0)
+        if (Input.GetKeyDown(KeyCode.E) && m_DashCooldown <= 0 && m_DashTimer <= 0 && m_Inputs != Vector3.zero)
         {
+            SFXManager.Instance.PlayPlayerSound(PlayerAction.Dash);
             m_DashTimer = DashDuration;
             m_DashCooldown = DashCooldown;
             m_DashDirection = m_Inputs.normalized;
