@@ -17,6 +17,10 @@ public class BotController : MonoBehaviour
     public float acceleration;
     public float turnSpeed;
 
+    public void SetTarget(GameObject obj) {
+        target=obj;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +31,7 @@ public class BotController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
-        {
+        if (target != null){
             agent.SetDestination(target.transform.position);
         }
         //debug input
@@ -39,17 +42,18 @@ public class BotController : MonoBehaviour
         //        agent.SetDestination(hitInfo.point);
         //    }
         //}
-    }
 
-    void FixedUpdate(){
-        // move logic
         if (agent.remainingDistance >= minDistance) {
             Vector3 directionVector = (agent.steeringTarget-rb.position).normalized;
-            Quaternion newRotation = Quaternion.LookRotation(directionVector, Vector3.up);
-            rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, newRotation, turnSpeed));
             rb.velocity = Vector3.Lerp(rb.velocity, (directionVector * speed), acceleration);
         } else { //stop moving
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, brakeSpeed);
         }
+    }
+
+    void FixedUpdate() {
+        Vector3 directionVector = (agent.steeringTarget-rb.position).normalized;
+        Quaternion newRotation = Quaternion.LookRotation(directionVector, Vector3.up);
+        rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, newRotation, turnSpeed));
     }
 }
