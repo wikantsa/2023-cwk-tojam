@@ -9,13 +9,15 @@ public class BotController : MonoBehaviour
 
     private NavMeshAgent agent;
     private Rigidbody rb;
-    public GameObject target;
+    private Vector3 kbVec;
 
+
+    public GameObject target;
     public float minDistance;
     public float speed;
-    public float brakeSpeed;
-    public float acceleration;
     public float turnSpeed;
+    public float knockback;
+    public float brakeSpeed;
 
     public void SetTarget(GameObject obj) {
         target=obj;
@@ -34,26 +36,35 @@ public class BotController : MonoBehaviour
         if (target != null){
             agent.SetDestination(target.transform.position);
         }
-        //debug input
-        //if (Input.GetMouseButtonDown(0)) {
-        //    Ray movePosition = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    Debug.Log(movePosition);
-        //    if (Physics.Raycast(movePosition, out var hitInfo)){
-        //        agent.SetDestination(hitInfo.point);
-        //    }
-        //}
-
-        if (agent.remainingDistance >= minDistance) {
-            Vector3 directionVector = (agent.steeringTarget-rb.position).normalized;
-            rb.velocity = Vector3.Lerp(rb.velocity, (directionVector * speed), acceleration);
-        } else { //stop moving
-            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, brakeSpeed);
-        }
     }
 
     void FixedUpdate() {
         Vector3 directionVector = (agent.steeringTarget-rb.position).normalized;
+        //rotate
         Quaternion newRotation = Quaternion.LookRotation(directionVector, Vector3.up);
         rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, newRotation, turnSpeed));
+
+
+        //move
+        if (kbVec == Vector3.zero) {
+            directionVector = (agent.steeringTarget-rb.position).normalized;
+        } else {
+            directionVector = (kbVec*knockback);
+            kbVec = Vector3.zero;
+        }
+
+        if (agent.remainingDistance >= minDistance) {
+            rb.MovePosition(rb.position + (directionVector * speed * Time.fixedDeltaTime));
+        }
+
+      rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, brakeSpeed);
+
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet") {
+            kbVec = (rb.position- agent.steeringTarget).normalized;
+        }
     }
 }

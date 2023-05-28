@@ -10,6 +10,9 @@ public class Missile : BaseBullet
     public TrailRenderer m_trailRenderer;
     public List<MeshRenderer> m_renderers;
 
+    public int damageAmount = 3;
+    public float searchRadius = 5f;
+    public float searchDistance = 5f;
     public float launchSpeed = 1;
     public float travelSpeed = 1;
     public float TTK = 3;
@@ -95,6 +98,11 @@ public class Missile : BaseBullet
     {
         if (other.tag != "Player" && other.tag != "Bullet")
         {
+            if (other.tag == "Enemy")
+            {
+                other.GetComponent<Killable>()?.DealDamage(damageAmount);
+            }
+
             //transform.localPosition -= transform.forward * 0.05f * LevelManager.Instance.LevelSpeed;
             isActive = false;
             m_rigidBody.velocity = Vector3.zero;
@@ -110,7 +118,22 @@ public class Missile : BaseBullet
 
     void FindTarget()
     {
-        //TODO: Add actual target location code
-        target = GameObject.Find("Box (2)").transform;
+        var killableMask = 1 << 7;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position + transform.forward * searchDistance, searchRadius, killableMask);
+
+        if (hitColliders.Length > 0)
+        {
+            float closestDistance = float.PositiveInfinity;
+            for (int i = 0; i < hitColliders.Length; i++)
+            {
+                var dist = (hitColliders[i].transform.position - transform.position).sqrMagnitude;
+
+                if (dist < closestDistance)
+                {
+                    target = hitColliders[i].transform;
+                    closestDistance = dist;
+                }
+            }
+        }
     }
 }

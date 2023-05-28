@@ -113,10 +113,9 @@ GameObject:
   - component: {fileID: 937068030878419764}
   - component: {fileID: 937068030878419765}
   - component: {fileID: -7852167778840171988}
-  - component: {fileID: -4292905663984471770}
-  m_Layer: 7
-  m_Name: ZombieBot
-  m_TagString: Enemy
+  m_Layer: 0
+  m_Name: FlyingBot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,11 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  minDistance: 1
-  speed: 4
+  minDistance: 3
+  speed: 15
+  brakeSpeed: 0.025
+  acceleration: 0.025
   turnSpeed: 5
-  knockback: 5
-  brakeSpeed: 0
 --- !u!33 &937068030878419769
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -270,16 +269,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 3
---- !u!114 &-4292905663984471770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937068030878419762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68158ab220e3ea44384fa565e0e1132b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 1

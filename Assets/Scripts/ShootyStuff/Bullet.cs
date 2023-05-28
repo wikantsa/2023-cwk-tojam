@@ -6,6 +6,7 @@ public class Bullet : BaseBullet
     Rigidbody m_rigidBody;
     public Animator m_animator;
 
+    public int damageAmount = 1;
     public float travelSpeed = 1;
     public float TTK = 3;
 
@@ -59,6 +60,11 @@ public class Bullet : BaseBullet
     {
         if (other.tag != "Player" && other.tag != "Bullet")
         {
+            if (other.tag == "Enemy")
+            {
+                other.GetComponent<Killable>()?.DealDamage(damageAmount);
+            }
+
             Deactivate();
 
             //transform.localPosition -= transform.forward * 0.05f * LevelManager.Instance.LevelSpeed;

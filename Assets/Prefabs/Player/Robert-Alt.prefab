@@ -363,8 +363,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bb258ec6568664ea0dac2228d211e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  BatteryPower: 100
   InvulnerabilityWindow: 1
+  BatteryDrainRate: 1
+  CharacterRenderers:
+  - {fileID: 2596949603410093412}
+  - {fileID: 5624546245616604751}
 --- !u!114 &2764740490889136243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +389,7 @@ MonoBehaviour:
   - {fileID: 6988142490933745488}
   - {fileID: 4253435271692908900}
   - {fileID: 841373136495805367}
+  IsShooting: 0
 --- !u!54 &6337752121163241168
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -513,6 +518,16 @@ Animator:
 --- !u!4 &1102120168080421649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 674a550f154f3234cbeefc6a6304f1be, type: 3}
+  m_PrefabInstance: {fileID: 630852533292061946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2596949603410093412 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3227685578789024158, guid: 674a550f154f3234cbeefc6a6304f1be, type: 3}
+  m_PrefabInstance: {fileID: 630852533292061946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5624546245616604751 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5102395909350310581, guid: 674a550f154f3234cbeefc6a6304f1be, type: 3}
   m_PrefabInstance: {fileID: 630852533292061946}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1895619373363011103

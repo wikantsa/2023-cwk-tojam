@@ -14,10 +14,13 @@ public class ShootController : MonoBehaviour
     bool controllerMode;
     Vector3 prevMousePosition;
 
+    [HideInInspector]
+    public bool IsShooting;
+
     // Start is called before the first frame update
     void Start()
     {
-        m_Plane = new Plane(Vector3.up, 0.0f);
+        m_Plane = new Plane(Vector3.up, 0.5f);
     }
 
     // Update is called once per frame
@@ -66,7 +69,8 @@ public class ShootController : MonoBehaviour
                 Vector3 hitPoint = ray.GetPoint(enter);
 
                 var characterPosition = transform.position;
-                characterPosition.y = 0;
+                characterPosition.y = 0f;
+                hitPoint.y = 0f;
                 m_AimDirection = hitPoint - characterPosition;
             }
         }
@@ -77,11 +81,13 @@ public class ShootController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            IsShooting = true;
             m_Animator.SetBool("FireMode", true);
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
+            IsShooting = false;
             m_Animator.SetBool("FireMode", false);
         }
 
