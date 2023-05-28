@@ -54,10 +54,13 @@ public class MainUI : MonoBehaviour
     }
 
     private IEnumerator GameTimeTracker()
-    {   
-        ++secondsElapsed;
-        _timerText.text = $"{secondsElapsed} s";
-        yield return new WaitForSeconds(1);
+    {
+        while (true)
+        {
+            ++secondsElapsed;
+            _timerText.text = $"{secondsElapsed} s";
+            yield return new WaitForSeconds(1);
+        }
     }
 
 
