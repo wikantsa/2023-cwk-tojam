@@ -17,6 +17,7 @@ public class Laser : MonoBehaviour
 
     public void DoHitScan()
     {
+        SFXManager.Instance.PlayPlayerSound(PlayerAction.Lazer);
         // Bit shift the index of the layer (6) to get a bit mask for terrain objects
         int layerMask = 1 << 6;
 
