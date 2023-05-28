@@ -122,6 +122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 20
   ExplosionScale: 6
+  CharacterRenderers:
+  - {fileID: 8396442238790301128}
+  SkinnedRenderers: []
 --- !u!114 &-6512026931452739312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,15 +151,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 963ca0c182d2d7f4a9f1de0b996b2a0f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 963ca0c182d2d7f4a9f1de0b996b2a0f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 963ca0c182d2d7f4a9f1de0b996b2a0f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 963ca0c182d2d7f4a9f1de0b996b2a0f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -207,5 +210,10 @@ PrefabInstance:
 --- !u!4 &7263474308615343783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 963ca0c182d2d7f4a9f1de0b996b2a0f, type: 3}
+  m_PrefabInstance: {fileID: 7153882362379299148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8396442238790301128 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 963ca0c182d2d7f4a9f1de0b996b2a0f, type: 3}
   m_PrefabInstance: {fileID: 7153882362379299148}
   m_PrefabAsset: {fileID: 0}

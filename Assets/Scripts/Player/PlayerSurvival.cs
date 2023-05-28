@@ -244,7 +244,7 @@ public class PlayerSurvival : MonoBehaviour
     {
         while (true)
         {
-            SetFlashStrength(1);
+            SetFlashStrength(0.5f);
             yield return new WaitForSeconds(0.1f);
             SetFlashStrength(0);
             yield return new WaitForSeconds(0.1f);
