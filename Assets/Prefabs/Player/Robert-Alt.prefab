@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 3905941495872623243}
+  GridLockedMovement: 0
   RotateSpeed: 10
   m_ShooterList:
   - {fileID: 5967856648500806760}
