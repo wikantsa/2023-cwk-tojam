@@ -302,18 +302,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 902931053032800432, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
-      propertyPath: _exit
-      value: 
-      objectReference: {fileID: 1285358954}
-    - target: {fileID: 902931053032800432, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
-      propertyPath: cursorPositions.Array.data[1]
-      value: 
-      objectReference: {fileID: 576126221}
-    - target: {fileID: 2731765153084266737, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: NaN
-      objectReference: {fileID: 0}
     - target: {fileID: 2731765153422636743, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
       propertyPath: m_Name
       value: titlescreen-canvas
@@ -402,16 +390,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5035881788002876046, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1009.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7988070829872984534, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: NaN
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 902931053032800432, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a45a747e9f996c419e80af384bb28bd, type: 3}
 --- !u!224 &576126221 stripped
 RectTransform:
