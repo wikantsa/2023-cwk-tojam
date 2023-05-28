@@ -12,13 +12,16 @@ public class MainUI : MonoBehaviour
     
     public RectTransform itemOne;
     public Image lemonCross;
+    public TextMeshProUGUI lemonRemains;
 
     public RectTransform itemTwo;
     public Image missileCross;
+    public TextMeshProUGUI missileRemains;
     
     public RectTransform itemThree;
     public Image laserCross;
-    
+    public TextMeshProUGUI laserRemains;
+
     public const float MAX_BATT_POWER = 100f;
 
     public TextMeshProUGUI _timerText;
@@ -34,27 +37,27 @@ public class MainUI : MonoBehaviour
     void Update() {
         batteryPowerBar.value = playerSurvival.GetCurrentBatteryPower / MAX_BATT_POWER;
 
-        Debug.Log($"Bullets: {playerSurvival.GetItemPowerLevel(Power.Bullets)}");
+        lemonRemains.text = $"{playerSurvival.GetItemPowerLevel(Power.Bullets)}";
 
         if (playerSurvival.GetItemPowerLevel(Power.Bullets) == 0)
             lemonCross.enabled = true;
-
-        Debug.Log($"Missiles: {playerSurvival.GetItemPowerLevel(Power.Missiles)}");
+        lemonRemains.text = $"{playerSurvival.GetItemPowerLevel(Power.Bullets)}";
 
         if (playerSurvival.GetItemPowerLevel(Power.Missiles) == 0)
             missileCross.enabled = true;
-
-        Debug.Log($"Lasers: {playerSurvival.GetItemPowerLevel(Power.Laser)}");
+        missileRemains.text = $"{playerSurvival.GetItemPowerLevel(Power.Missiles)}";
 
         if (playerSurvival.GetItemPowerLevel(Power.Laser) == 0)
             laserCross.enabled = true;
+        laserRemains.text = $"{playerSurvival.GetItemPowerLevel(Power.Laser)}";
+
     }
 
     private IEnumerator GameTimeTracker()
-    {
+    {   
         ++secondsElapsed;
         _timerText.text = $"{secondsElapsed} s";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1);
     }
 
 
