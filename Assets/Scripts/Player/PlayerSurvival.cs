@@ -29,9 +29,21 @@ public class PlayerSurvival : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(m_invulnerabilityCountdown <= 0)
+        DamageSource source = collision.gameObject.GetComponent<DamageSource>();
+        if(m_invulnerabilityCountdown <= 0 && source != null)
         {
-            int damage = collision.gameObject.GetComponent<DamageSource>().Damage;
+            int damage = source.Damage;
+            m_health -= damage;
+            m_invulnerabilityCountdown = InvulnerabilityWindow;
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        DamageSource source = collider.gameObject.GetComponent<DamageSource>();
+        if(m_invulnerabilityCountdown <= 0 && source != null)
+        {
+            int damage = source.Damage;
             m_health -= damage;
             m_invulnerabilityCountdown = InvulnerabilityWindow;
         }
