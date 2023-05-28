@@ -33,10 +33,14 @@ public class SFXManager : MonoBehaviour
     {
         if(!Muted)
         {
-            AudioSource source = m_sources.First(s => s.isPlaying == false);
-            source.volume = GlobalVolume;
-            source.clip = Clips.First(c => c.Action == action).Clip;
-            source.Play();
+            AudioSource source = m_sources.FirstOrDefault(s => s.isPlaying == false);
+
+            if (source != null)
+            {
+                source.volume = GlobalVolume;
+                source.clip = Clips.First(c => c.Action == action).Clip;
+                source.Play();
+            }
         }
     }
 }
