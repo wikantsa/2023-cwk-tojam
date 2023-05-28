@@ -16,8 +16,6 @@ public enum EGameState
 public class GameStateManager : MonoBehaviour
 {
     private static GameStateManager instance = null;
-
-    public TMPro.TextContainer TextContainer;
    
     private Dictionary<EGameState, GameState> m_gameStateDictionary;    //maps the dance states to the dance state enum for reference
 

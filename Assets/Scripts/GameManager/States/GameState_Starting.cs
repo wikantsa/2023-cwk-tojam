@@ -12,12 +12,12 @@ public class GameState_Starting : GameState
 
     protected override void EnterState(EGameState prevState)
     {
-        //PlayerStateManager.Instance.ChangeState(EPlayerState.Idle);
+        MusicManager.Instance.PlayTrack(MusicTrack.FunkyBattle);
     }
 
     protected override void UpdateState()
     {
-        
+        m_gameStateManager.ChangeState(EGameState.Game);
     }
 
     protected override void LeaveState(EGameState nextState)

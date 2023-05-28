@@ -16,7 +16,7 @@ public class GameState_Load : GameState
 
     protected override void UpdateState()
     {
-        //m_gameStateManager.ChangeState(EGameState.Starting);
+        m_gameStateManager.ChangeState(EGameState.Starting);
     }
 
     protected override void LeaveState(EGameState nextState)

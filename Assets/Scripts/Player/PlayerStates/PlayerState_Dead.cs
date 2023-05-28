@@ -11,7 +11,8 @@ public class PlayerState_Dead : PlayerState
 
     protected override void EnterState(EPlayerState prevState)
     {
-
+        m_playerStateManager.gameObject.GetComponent<PlayerController>().enabled = false;
+        GameObject.Destroy(m_playerStateManager.gameObject);
     }
 
     protected override void UpdateState()

@@ -13,7 +13,28 @@ public class BotManager : MonoBehaviour
     public float SpawnCooldown;
     public GameObject[] SpawnPoints;
 
+    private static BotManager instance = null;
+    public static BotManager Instance
+    {
+        get
+        {
+            return instance;
+        }
+    }
 
+    void Awake()
+    {
+        //Highlander exception
+        if (BotManager.Instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+    }
 
     private List<GameObject> ActiveEnemies;
     private float timer;

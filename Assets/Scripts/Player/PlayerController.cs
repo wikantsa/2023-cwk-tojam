@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public float Speed = 5f;
+    public bool JumpEnabled = false;
     public float JumpForce = 1f;
     public float DashForce = 1f;
     public float DashDuration = 1f;
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
             dashEvent.Invoke();
         }
             
-        if (Input.GetKeyDown(KeyCode.Space) && m_body.position.y <= 1.05f)
+        if (Input.GetKeyDown(KeyCode.Space) && JumpEnabled && m_body.position.y <= 1.05f)
         {
             m_Rigidbody.AddForce(Vector3.up * JumpForce);
         }
