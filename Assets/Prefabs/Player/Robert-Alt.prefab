@@ -104,7 +104,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.93725497, g: 0.61960787, b: 0.15294118, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8865321034852251993}
   - component: {fileID: 8865321034678961688}
+  - component: {fileID: 7080982020339840347}
   - component: {fileID: 2764740490889136243}
   - component: {fileID: 6337752121163241168}
   - component: {fileID: 8865321034678961691}
@@ -350,6 +351,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7080982020339840347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865321034678961690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65bb258ec6568664ea0dac2228d211e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  InvulnerabilityWindow: 1
 --- !u!114 &2764740490889136243
 MonoBehaviour:
   m_ObjectHideFlags: 0

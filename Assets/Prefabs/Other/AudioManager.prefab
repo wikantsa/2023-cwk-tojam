@@ -42,8 +42,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5714865369849288261}
-  - component: {fileID: 5714865369849288258}
   - component: {fileID: 5714865369849288259}
+  - component: {fileID: 5714865369849288258}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -66,6 +66,21 @@ Transform:
   m_Father: {fileID: 5714865368384380539}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5714865369849288259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5714865369849288260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f782c2b6c9728b4cab3e23f930576b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clips:
+  - Track: 1
+    Clip: {fileID: 8300000, guid: b1928c37edd05f24285c0fe2fd7d7b89, type: 3}
 --- !u!82 &5714865369849288258
 AudioSource:
   m_ObjectHideFlags: 0
@@ -162,21 +177,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5714865369849288259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5714865369849288260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f782c2b6c9728b4cab3e23f930576b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Clips:
-  - Track: 1
-    Clip: {fileID: 8300000, guid: b1928c37edd05f24285c0fe2fd7d7b89, type: 3}
 --- !u!1 &5714865369959359502
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Muted: 0
+  GlobalVolume: 0.2
   Clips:
   - Action: 2
     Clip: {fileID: 8300000, guid: 0c3287c0638b69b499d521b2c4bb1862, type: 3}
