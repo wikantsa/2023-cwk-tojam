@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class BotController : MonoBehaviour
+public class BotController : MonoBehaviour, ITargetSettable
 {
 
     private NavMeshAgent agent;
@@ -67,4 +67,9 @@ public class BotController : MonoBehaviour
             kbVec = (rb.position- agent.steeringTarget).normalized;
         }
     }
+}
+
+interface ITargetSettable
+{
+  void SetTarget(GameObject obj);
 }

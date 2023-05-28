@@ -585,6 +585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 705156194}
   ZombieBotPrefab: {fileID: 937068030878419762, guid: 48e7730c8233e257eb917a7cc5953403, type: 3}
+  FlyBotPrefab: {fileID: 7686005102803272571, guid: 20e94f11369652e85867d0646f8875b2, type: 3}
   BigBotPrefab: {fileID: 937068030878419762, guid: 25e0d67f18d258caeb0dd2b9e6498c39, type: 3}
   NumberofEnemies: 25
   SpawnCooldown: 0
