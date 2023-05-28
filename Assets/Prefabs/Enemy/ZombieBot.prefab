@@ -113,9 +113,9 @@ GameObject:
   - component: {fileID: 937068030878419764}
   - component: {fileID: 937068030878419765}
   - component: {fileID: -7852167778840171988}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ZombieBot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
