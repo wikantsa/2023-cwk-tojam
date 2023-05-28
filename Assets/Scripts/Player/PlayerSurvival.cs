@@ -53,13 +53,8 @@ public class PlayerSurvival : MonoBehaviour
 
     [HideInInspector]
     public Power PowerToEat;
-
-<<<<<<< Updated upstream
     private int currentPowerLevel = 9;
-
-=======
     
->>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {

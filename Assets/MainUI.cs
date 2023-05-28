@@ -11,13 +11,13 @@ public class MainUI : MonoBehaviour
     public PlayerSurvival playerSurvival;
     
     public RectTransform itemOne;
-    public RawImage lemonCross;
+    public Image lemonCross;
 
     public RectTransform itemTwo;
-    public RawImage missileCross;
+    public Image missileCross;
     
     public RectTransform itemThree;
-    public RawImage laserCross;
+    public Image laserCross;
     
     public const float MAX_BATT_POWER = 100f;
 
@@ -37,7 +37,7 @@ public class MainUI : MonoBehaviour
         Debug.Log($"Bullets: {playerSurvival.GetItemPowerLevel(Power.Bullets)}");
 
         if (playerSurvival.GetItemPowerLevel(Power.Bullets) == 0)
-            lemonCross.Enabled = true;
+            lemonCross.enabled = true;
 
         Debug.Log($"Missiles: {playerSurvival.GetItemPowerLevel(Power.Missiles)}");
 
