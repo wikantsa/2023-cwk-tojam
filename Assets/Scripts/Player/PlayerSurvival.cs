@@ -17,6 +17,7 @@ public class PlayerSurvival : MonoBehaviour
     public float BatteryPowerGainedOnEat = 50;
 
     public SkinnedMeshRenderer[] CharacterRenderers;
+    Animator m_Animator;
 
     private float m_CurrentBatteryPower;
     public float GetCurrentBatteryPower => m_CurrentBatteryPower;
@@ -51,6 +52,7 @@ public class PlayerSurvival : MonoBehaviour
     {
         m_CurrentBatteryPower = BatteryPower;
         m_ShootController = GetComponent<ShootController>();
+        m_Animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -162,6 +164,8 @@ public class PlayerSurvival : MonoBehaviour
                     {
                         shooter.isDisabled = true;
                     }
+
+                    m_Animator.SetBool("SingleArm", true);
                 }
                 break;
             case Power.Missiles:

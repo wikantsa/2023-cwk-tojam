@@ -27,10 +27,11 @@ public class IsoCamera : MonoBehaviour
         Vector3 location = transform.position;
         transform.position = transform.position + (destination - location) * Time.deltaTime * CatchUpSpeed;
 
+        /*
         if(Input.GetKeyDown(KeyCode.Q))
         {
             transform.DOShakePosition(ShakeDuration, ShakeStrength, ShakeVibrato, ShakeRandomness, true, true, ShakeRandomnessMode.Harmonic);
-
         }
+        */
     }
 }
