@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseBullet : MonoBehaviour
+public class Bullet : BaseBullet
 {
     Transform m_spawner;
     Rigidbody m_rigidBody;
@@ -35,7 +35,7 @@ public class BaseBullet : MonoBehaviour
         */
     }
 
-    public void Activate(Transform spawner)
+    public override void Activate(Transform spawner)
     {
         gameObject.SetActive(true);
         trigger.enabled = true;
@@ -46,7 +46,7 @@ public class BaseBullet : MonoBehaviour
         m_rigidBody.AddForce(transform.forward * travelSpeed, ForceMode.Impulse);
     }
 
-    public void Deactivate()
+    public override void Deactivate()
     {
         gameObject.SetActive(false);
         m_rigidBody.velocity = Vector3.zero;
