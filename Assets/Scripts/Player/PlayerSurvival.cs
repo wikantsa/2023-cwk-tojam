@@ -73,7 +73,8 @@ public class PlayerSurvival : MonoBehaviour
         }
         if(m_CurrentBatteryPower <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            ExplosionManager.Instance.SpawnExplosion(transform.position, 3);
         }
 
         if (m_ShootController.IsShooting)
