@@ -13,10 +13,12 @@ public class Missile : BaseBullet
     public float launchSpeed = 1;
     public float travelSpeed = 1;
     public float TTK = 3;
+    public float despawnTime = 2;
     public float rotateSpeed = 10f;
 
     private bool isActive;
     private float timer;
+    private bool isExploded;
     private Collider trigger;
     private Transform target;
 
@@ -30,7 +32,7 @@ public class Missile : BaseBullet
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0)
+        if (timer <= 0 && (trigger.enabled || isExploded))
         {
             Deactivate();
         }
@@ -86,6 +88,7 @@ public class Missile : BaseBullet
         transform.localPosition = Vector3.zero;
         transform.localScale = Vector3.one;
         m_trailRenderer.Clear();
+        isExploded = false;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -96,7 +99,9 @@ public class Missile : BaseBullet
             isActive = false;
             m_rigidBody.velocity = Vector3.zero;
             trigger.enabled = false;
-            //m_animator.SetTrigger("Explode");
+            m_animator.SetTrigger("Explode");
+            timer = despawnTime;
+            isExploded = true;
 
             foreach (var renderer in m_renderers)
                 renderer.enabled = false;
