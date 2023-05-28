@@ -111,7 +111,7 @@ MonoBehaviour:
   MaxVelocity: 5
   SlowDownModifier: 900
   GravityModifier: 200
-  GridLockedMovement: 1
+  GridLockedMovement: 0
   dashEvent:
     m_PersistentCalls:
       m_Calls:
