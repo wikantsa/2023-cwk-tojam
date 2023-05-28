@@ -203,8 +203,9 @@ MonoBehaviour:
   - {fileID: 5441564201548276598}
   damageAmount: 3
   searchRadius: 15
+  searchDistance: 5
   launchSpeed: 100
-  travelSpeed: 30
+  travelSpeed: 10
   TTK: 6
   despawnTime: 2
   rotateSpeed: 5

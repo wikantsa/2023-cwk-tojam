@@ -7,6 +7,7 @@ public class BotManager : MonoBehaviour
     public GameObject playerObject;
     public GameObject ZombieBotPrefab;
     public GameObject FlyBotPrefab;
+    public float FlyBotSpawnHeight;
     public GameObject BigBotPrefab; //O Lawd he comin
     public int NumberofEnemies;
     public float SpawnCooldown;
@@ -37,9 +38,9 @@ public class BotManager : MonoBehaviour
         if (timer < 0 && ActiveEnemies.Count < NumberofEnemies) {
             Vector3 spawnPoint = GetSpawnPoint();
             int EnemyTableRoll = Random.Range(0, 10);
-            if (EnemyTableRoll > 2) {
+            if (EnemyTableRoll > 1) {
                 SpawnZombieBot(spawnPoint);
-            } else if (EnemyTableRoll == 1 || EnemyTableRoll == 2){
+            } else if (EnemyTableRoll == 1){
                 SpawnFlyBot(spawnPoint);
             } else {
                 SpawnBigBot(spawnPoint);
@@ -58,20 +59,20 @@ public class BotManager : MonoBehaviour
     }
 
     void SpawnZombieBot(Vector3 spawnPoint) {
-            GameObject newEnemey = Instantiate(ZombieBotPrefab, spawnPoint, Quaternion.identity);
-            ActiveEnemies.Add(newEnemey);
-            newEnemey.GetComponent<ITargetSettable>().SetTarget(playerObject);
-            newEnemey.GetComponent<Killable>().SetController(this);
+        GameObject newEnemey = Instantiate(ZombieBotPrefab, spawnPoint, Quaternion.identity);
+        ActiveEnemies.Add(newEnemey);
+        newEnemey.GetComponent<ITargetSettable>().SetTarget(playerObject);
+        newEnemey.GetComponent<Killable>().SetController(this);
     }
      void SpawnBigBot(Vector3 spawnPoint) {
-            GameObject newEnemey = Instantiate(BigBotPrefab, spawnPoint, Quaternion.identity);
-            ActiveEnemies.Add(newEnemey);
-            newEnemey.GetComponent<ITargetSettable>().SetTarget(playerObject);
-            newEnemey.GetComponent<Killable>().SetController(this);
+        GameObject newEnemey = Instantiate(BigBotPrefab, spawnPoint, Quaternion.identity);
+        ActiveEnemies.Add(newEnemey);
+        newEnemey.GetComponent<ITargetSettable>().SetTarget(playerObject);
+        newEnemey.GetComponent<Killable>().SetController(this);
     }
 
     void SpawnFlyBot(Vector3 spawnPoint) {
-        GameObject newEnemey = Instantiate(FlyBotPrefab, spawnPoint + (Vector3.up*10), Quaternion.identity);
+        GameObject newEnemey = Instantiate(FlyBotPrefab, spawnPoint + (Vector3.up*FlyBotSpawnHeight), Quaternion.identity);
         ActiveEnemies.Add(newEnemey);
         newEnemey.GetComponent<ITargetSettable>().SetTarget(playerObject);
         newEnemey.GetComponent<Killable>().SetController(this);
