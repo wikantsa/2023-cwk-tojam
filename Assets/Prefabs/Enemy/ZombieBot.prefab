@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 3
   ExplosionScale: 3
+  CharacterRenderers:
+  - {fileID: 1684226172889486949}
 --- !u!114 &-4292905663984471770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,5 +197,10 @@ PrefabInstance:
 --- !u!4 &510241682187463946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b858bc76d6a09e47b8f90d6f7b81603, type: 3}
+  m_PrefabInstance: {fileID: 44481181908781793}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1684226172889486949 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 2b858bc76d6a09e47b8f90d6f7b81603, type: 3}
   m_PrefabInstance: {fileID: 44481181908781793}
   m_PrefabAsset: {fileID: 0}
