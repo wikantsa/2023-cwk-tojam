@@ -12,7 +12,8 @@ public class GameState_Game : GameState
 
     protected override void EnterState(EGameState prevState)
     {
-        //PlayerStateManager.Instance.ChangeState(EPlayerState.Alive);
+        PlayerStateManager.Instance.ChangeState(EPlayerState.Alive);
+        BotManager.Instance.NumberofEnemies = 25;
     }
 
     protected override void UpdateState()
@@ -22,7 +23,8 @@ public class GameState_Game : GameState
 
     protected override void LeaveState(EGameState nextState)
     {
-        //PlayerStateManager.Instance.ChangeState(EPlayerState.Idle);
+        BotManager.Instance.NumberofEnemies = 0;
+        PlayerStateManager.Instance.ChangeState(EPlayerState.Idle);
     }
 }
 

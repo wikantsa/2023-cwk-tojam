@@ -68,7 +68,7 @@ public class PlayerSurvival : MonoBehaviour
         }
         if(m_CurrentBatteryPower <= 0)
         {
-            Destroy(gameObject);
+            GameStateManager.Instance.ChangeState(EGameState.GameOver);
         }
 
         if (m_ShootController.IsShooting)

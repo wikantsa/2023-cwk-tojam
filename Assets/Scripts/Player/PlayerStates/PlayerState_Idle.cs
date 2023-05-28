@@ -12,7 +12,7 @@ public class PlayerState_Idle : PlayerState
 
     protected override void EnterState(EPlayerState prevState)
     {
-
+        m_playerStateManager.gameObject.GetComponent<PlayerController>().enabled = false;
     }
 
     protected override void UpdateState()

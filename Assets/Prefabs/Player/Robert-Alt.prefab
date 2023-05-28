@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 8865321034678961688}
   - component: {fileID: 7080982020339840347}
   - component: {fileID: 2764740490889136243}
+  - component: {fileID: 7730499650304472829}
   - component: {fileID: 6337752121163241168}
   - component: {fileID: 8865321034678961691}
   m_Layer: 0
@@ -378,6 +379,7 @@ MonoBehaviour:
   BatteryPower: 100
   InvulnerabilityWindow: 1
   BatteryDrainRate: 1
+  BatteryPowerGainedOnEat: 50
   CharacterRenderers:
   - {fileID: 2596949603410093412}
   - {fileID: 5624546245616604751}
@@ -436,6 +438,18 @@ MonoBehaviour:
   - {fileID: 2406630250948938049}
   - {fileID: 2406630251500992695}
   IsShooting: 0
+--- !u!114 &7730499650304472829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865321034678961690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e0baa1a51b702478a40b7b953a63ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &6337752121163241168
 Rigidbody:
   m_ObjectHideFlags: 0
