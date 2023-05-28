@@ -17,7 +17,7 @@ public class ShootController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Plane = new Plane(Vector3.up, 0.0f);
+        m_Plane = new Plane(Vector3.up, 0.5f);
     }
 
     // Update is called once per frame
@@ -66,7 +66,8 @@ public class ShootController : MonoBehaviour
                 Vector3 hitPoint = ray.GetPoint(enter);
 
                 var characterPosition = transform.position;
-                characterPosition.y = 0;
+                characterPosition.y = 0f;
+                hitPoint.y = 0f;
                 m_AimDirection = hitPoint - characterPosition;
             }
         }

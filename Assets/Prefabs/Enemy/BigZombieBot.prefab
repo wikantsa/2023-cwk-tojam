@@ -114,9 +114,9 @@ GameObject:
   - component: {fileID: 937068030878419765}
   - component: {fileID: -7852167778840171988}
   - component: {fileID: -6512026931452739312}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BigZombieBot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   speed: 6
   turnSpeed: 5
   knockback: 5
+  brakeSpeed: 0
 --- !u!33 &937068030878419769
 MeshFilter:
   m_ObjectHideFlags: 0
