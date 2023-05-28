@@ -23,6 +23,7 @@ public class BulletShooter : BaseShooter
 
     protected override void OnShootBullet()
     {
+        SFXManager.Instance.PlayPlayerSound(PlayerAction.Shoot);
         if (m_BulletSpawner.childCount == 0)
         {
             GameObject.Instantiate(m_BulletPrefab, m_BulletSpawner);
