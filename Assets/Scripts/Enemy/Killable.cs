@@ -8,6 +8,8 @@ public class Killable : MonoBehaviour
     private BotManager bm;
     private int hp;
 
+    public float ExplosionScale = 3;
+
     void Start(){
         hp = MaxHP;
     }
@@ -23,6 +25,8 @@ public class Killable : MonoBehaviour
 
         if (hp <= 0)
         {
+            if (ExplosionManager.Instance != null)
+                ExplosionManager.Instance.SpawnExplosion(transform.position, ExplosionScale);
             bm.KillMe(this.gameObject);
         }
     }
