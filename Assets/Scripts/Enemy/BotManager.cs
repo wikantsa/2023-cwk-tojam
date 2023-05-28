@@ -71,7 +71,7 @@ public class BotManager : MonoBehaviour
     }
 
     void SpawnFlyBot(Vector3 spawnPoint) {
-        GameObject newEnemey = Instantiate(FlyBotPrefab, spawnPoint + (Vector3.up*10), Quaternion.identity);
+        GameObject newEnemey = Instantiate(FlyBotPrefab, spawnPoint + (Vector3.up*5), Quaternion.identity);
         ActiveEnemies.Add(newEnemey);
         newEnemey.GetComponent<ITargetSettable>().SetTarget(playerObject);
         newEnemey.GetComponent<Killable>().SetController(this);
