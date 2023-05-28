@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.514151, g: 0.68845546, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1273,7 +1273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4385037967609370973}
-  - component: {fileID: 1566302985629445407}
+  - component: {fileID: 8983204384339756541}
   m_Layer: 5
   m_Name: progress_panel
   m_TagString: Untagged
@@ -1304,18 +1304,14 @@ RectTransform:
   m_AnchoredPosition: {x: -16, y: -18}
   m_SizeDelta: {x: 430.5, y: 184.20001}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &1566302985629445407
-MonoBehaviour:
+--- !u!222 &8983204384339756541
+CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4385037967609370970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4712e1255f8434a8bd254599ec568b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_CullTransparentMesh: 1
 --- !u!1 &4385037967689550298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,6 +1397,7 @@ GameObject:
   - component: {fileID: 4385037967701347377}
   - component: {fileID: 4385037967701347374}
   - component: {fileID: 4385037967701347375}
+  - component: {fileID: 5815292504950358437}
   m_Layer: 5
   m_Name: mainUI
   m_TagString: Untagged
@@ -1492,6 +1489,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5815292504950358437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385037967701347372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aeb756d226633d4c91a8d5cbb63411e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteryPowerBar: {fileID: 1915424503606562073}
+  playerSurvival: {fileID: 0}
 --- !u!1 &4732656700892234562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,7 +1520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5324611672045993807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1732,7 +1743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4324048, g: 0.5933129, b: 0.745283, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1784,9 +1795,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -10}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: 83.9, y: -12.4}
   m_SizeDelta: {x: 50, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &3467999453215470589
 CanvasRenderer:
   m_ObjectHideFlags: 0
