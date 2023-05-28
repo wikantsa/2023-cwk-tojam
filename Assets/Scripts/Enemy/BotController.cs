@@ -17,6 +17,7 @@ public class BotController : MonoBehaviour
     public float speed;
     public float turnSpeed;
     public float knockback;
+    public float brakeSpeed;
 
     public void SetTarget(GameObject obj) {
         target=obj;
@@ -56,6 +57,7 @@ public class BotController : MonoBehaviour
             rb.MovePosition(rb.position + (directionVector * speed * Time.fixedDeltaTime));
         }
 
+      rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, brakeSpeed);
 
     }
 
