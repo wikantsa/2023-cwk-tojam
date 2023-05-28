@@ -63,12 +63,14 @@ public class Laser : MonoBehaviour
 
     void SetLaserSpriteDistance(float distance)
     {
+        var scaledDist = (distance + m_laserThickness) / transform.localScale.x;
+
         var size = m_laserSprite.size;
-        size.y = distance;
+        size.y = scaledDist;
         m_laserSprite.size = size;
 
         var pos = m_laserSprite.transform.localPosition;
-        pos.z = distance * 0.5f;
+        pos.z = scaledDist * 0.5f;
         m_laserSprite.transform.localPosition = pos;
     }
 

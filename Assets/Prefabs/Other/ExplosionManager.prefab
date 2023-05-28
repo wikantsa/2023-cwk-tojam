@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6451408141786582347
+--- !u!1 &5786444512723446019
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 121448546168991150}
-  - component: {fileID: 5880269197233755829}
+  - component: {fileID: 8606615578727602908}
+  - component: {fileID: 6643577889215818704}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: ExplosionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &121448546168991150
+--- !u!4 &8606615578727602908
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6451408141786582347}
+  m_GameObject: {fileID: 5786444512723446019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1087.5254, y: 584.0427, z: -8.070093}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5880269197233755829
+--- !u!114 &6643577889215818704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6451408141786582347}
+  m_GameObject: {fileID: 5786444512723446019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4223d2cd2ef910141887ecf1e4c9749f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e65fd34999645146a9bdfb71a518337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cursor: {fileID: 0}
-  _start: {fileID: 0}
-  _exit: {fileID: 0}
-  cursorPositions: []
-  TargetSceneIndex: 4
+  m_ExplosionPrefab: {fileID: 505462461313895880, guid: 6e2d575b47276be40b0bb4ea9f8830d9, type: 3}
+  m_PoolSize: 20

@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 20
+  ExplosionScale: 6
 --- !u!114 &-6512026931452739312
 MonoBehaviour:
   m_ObjectHideFlags: 0
