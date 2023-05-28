@@ -607,10 +607,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cursor: {fileID: 2648080773888713370}
   _start: {fileID: 2731765152769601561}
-  _exit: {fileID: 0}
+  _exit: {fileID: 50424441926143910}
   cursorPositions:
   - {fileID: 1846927426278612332}
-  - {fileID: 0}
+  - {fileID: 7603777279615478728}
+  TargetSceneIndex: 4
 --- !u!1 &4557255775762232215
 GameObject:
   m_ObjectHideFlags: 0
