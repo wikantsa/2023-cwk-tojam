@@ -11,9 +11,10 @@ public class PlayerController : MonoBehaviour
     public float DashDuration = 1f;
     public float DashCooldown = 4f;
     public float MaxVelocity = 1f;
-    public float SlowDownModifier = 1f;
     public float GravityModifier = 1f;
     public bool GridLockedMovement = true;
+
+    public Animator m_Animator;
 
     private Vector3 m_Inputs = Vector3.zero;
     
@@ -38,7 +39,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
         m_Inputs = Vector3.zero;
         m_Inputs.x = Input.GetAxis("Horizontal");
         m_Inputs.z = Input.GetAxis("Vertical");
@@ -67,18 +67,22 @@ public class PlayerController : MonoBehaviour
         }
 
         m_LastPosition = m_body.position;
+
+
+        var locVel = transform.InverseTransformDirection(m_Rigidbody.velocity).normalized;
+        m_Animator.SetFloat("XVelocity", locVel.x);
+        m_Animator.SetFloat("ZVelocity", locVel.z);
     }
 
     void FixedUpdate()
     {
         // Add movement Velocity
-        m_Rigidbody.AddForce(m_Inputs * Speed * Time.fixedDeltaTime);
+        m_Rigidbody.AddForce(m_Inputs.normalized * Speed * Time.fixedDeltaTime);
 
-        // Slow down in directions you are not gaining velocity in
         Vector3 velocity = m_Rigidbody.velocity;
         float yVelocity = m_Rigidbody.velocity.y;
         velocity.y = 0;
-        m_Rigidbody.AddForce(-velocity * SlowDownModifier * Time.fixedDeltaTime);
+
         velocity.x = Mathf.Clamp(velocity.x, -MaxVelocity, MaxVelocity);
         velocity.z = Mathf.Clamp(velocity.z, -MaxVelocity, MaxVelocity);
         velocity.y = yVelocity - GravityModifier * Time.fixedDeltaTime;
