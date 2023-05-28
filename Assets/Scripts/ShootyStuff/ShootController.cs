@@ -95,7 +95,7 @@ public class ShootController : MonoBehaviour
         {
             foreach (var shooter in m_ShooterList)
             {
-                if (!shooter.IsOnCooldown)
+                if (!shooter.IsOnCooldown && !shooter.isDisabled)
                 {
                     shooter.ShootBullet();
                 }

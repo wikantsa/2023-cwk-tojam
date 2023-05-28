@@ -10,6 +10,8 @@ public abstract class BaseShooter : MonoBehaviour
 
     public bool IsOnCooldown => m_CooldownTracker > 0;
 
+    public bool isDisabled = false;
+
     // Update is called once per frame
     void Update()
     {
