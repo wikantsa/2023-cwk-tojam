@@ -17,15 +17,13 @@ public class Killable : MonoBehaviour
         bm = _bm;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void DealDamage(int damageAmount)
     {
-        if (other.tag == "Bullet") {
-            if (hp <= 0) {
-                bm.KillMe(this.gameObject);
-            } else {
-                hp--;
-            }
+        hp -= damageAmount;
 
+        if (hp <= 0)
+        {
+            bm.KillMe(this.gameObject);
         }
     }
 }

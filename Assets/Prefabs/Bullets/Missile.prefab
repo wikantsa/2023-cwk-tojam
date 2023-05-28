@@ -201,6 +201,8 @@ MonoBehaviour:
   m_trailRenderer: {fileID: 1052570399655866659}
   m_renderers:
   - {fileID: 5441564201548276598}
+  damageAmount: 3
+  searchRadius: 15
   launchSpeed: 100
   travelSpeed: 30
   TTK: 6
