@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Power
+{
+    Bullets = 0,
+    Missiles = 1,
+    Laser = 2
+}
+
+
 public class PlayerSurvival : MonoBehaviour
 {
-    public enum Power
-    {
-        Bullets = 0,
-        Missiles = 1,
-        Laser = 2
-    }
-
+ 
     public float BatteryPower = 100;
     public float InvulnerabilityWindow = 1f;
     public float BatteryDrainRate = 1f;
@@ -34,6 +37,9 @@ public class PlayerSurvival : MonoBehaviour
         { Power.Missiles, 3 },
         { Power.Laser, 3 }
     };
+    //public Dictionary<Power, int> GetPowerLevels => m_PowerLevels;
+    public int GetItemPowerLevel(Power power) => m_PowerLevels[power];
+
 
     public List<BaseShooter> m_Level0BulletsToRemove;
     public List<BaseShooter> m_Level1BulletsToRemove;
@@ -48,8 +54,12 @@ public class PlayerSurvival : MonoBehaviour
     [HideInInspector]
     public Power PowerToEat;
 
+<<<<<<< Updated upstream
     private int currentPowerLevel = 9;
 
+=======
+    
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
