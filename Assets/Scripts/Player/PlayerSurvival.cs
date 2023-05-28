@@ -19,6 +19,8 @@ public class PlayerSurvival : MonoBehaviour
     public SkinnedMeshRenderer[] CharacterRenderers;
 
     private float m_CurrentBatteryPower;
+    public float GetCurrentBatteryPower => m_CurrentBatteryPower;
+
     private float m_InvulnerabilityCountdown;
 
     private ShootController m_ShootController;

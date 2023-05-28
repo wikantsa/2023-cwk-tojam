@@ -3,21 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SceneIndices
-{
-    Title = 0,
-    Main = 1,
-    SeanScene = 2,
-    ZeeshanPlayground = 3
-
-}
 
 public class UIManager : MonoBehaviour
 {
-    public RectTransform _cursor;
-    public RectTransform _start;
-    public RectTransform _exit;
-    public List<RectTransform> cursorPositions;
+    public RectTransform _cursor = null;
+    public RectTransform _start = null;
+    public RectTransform _exit = null;
+    public List<RectTransform> cursorPositions = null;
+
+    public int TargetSceneIndex = 4;
 
     //public GameObject robertsArm;
     // add particle effect or something here that is fired
@@ -38,17 +32,20 @@ public class UIManager : MonoBehaviour
         else {
             Destroy(this);
         }
-        // set default cursor position
-        _cursor.anchoredPosition = cursorPositions[cursorPointer].anchoredPosition;
+        UIManager.DontDestroyOnLoad(this);
 
-        StartCoroutine("HandleTitleInputs");
+        // set default cursor position
+        if (_cursor) {
+            _cursor.anchoredPosition = cursorPositions[cursorPointer].anchoredPosition;
+            StartCoroutine("HandleTitleInputs");
+        }
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
             if (cursorPointer == 0)
-                StartGame();
+                LoadScene(TargetSceneIndex);
             else
                 ExitGame();
     }
@@ -74,9 +71,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
+    public void LoadScene(int index)
     {
-        SceneManager.LoadSceneAsync((int)SceneIndices.ZeeshanPlayground);
+        SceneManager.LoadSceneAsync(TargetSceneIndex);
     }
 
     public void ExitGame() {
