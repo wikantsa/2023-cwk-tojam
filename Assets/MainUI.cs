@@ -113,7 +113,7 @@ public class MainUI : MonoBehaviour
         while (true)
         {
             ++secondsElapsed;
-            _timerText.text = $"{secondsElapsed} s";
+            _timerText.text = $"{secondsElapsed}s";
             yield return new WaitForSeconds(1);
         }
     }
