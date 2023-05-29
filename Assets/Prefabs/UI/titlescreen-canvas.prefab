@@ -610,7 +610,7 @@ MonoBehaviour:
   cursorPositions:
   - {fileID: 1846927426278612332}
   - {fileID: 7603777279615478728}
-  TargetSceneIndex: 4
+  TargetSceneIndex: 1
 --- !u!1 &4557255775762232215
 GameObject:
   m_ObjectHideFlags: 0
