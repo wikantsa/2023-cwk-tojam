@@ -59,7 +59,7 @@ public class TitleScreenController : MonoBehaviour
 
     public void LoadScene(int index)
     {
-        SceneManager.LoadSceneAsync(TargetSceneIndex);
+        SceneManager.LoadScene(TargetSceneIndex);
     }
 
     public void ExitGame()

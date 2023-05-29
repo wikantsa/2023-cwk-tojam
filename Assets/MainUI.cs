@@ -31,6 +31,8 @@ public class MainUI : MonoBehaviour
 
     public List<CanvasGroup> canvasGroups;
     public CanvasGroup fadeCG;
+    public CanvasGroup gameOverCG;
+    public TextMeshProUGUI scoreText;
 
     private Coroutine timerRoutine;
 
@@ -129,5 +131,11 @@ public class MainUI : MonoBehaviour
     public void UpdateFadeCG(float value, float time)
     {
         DOTween.To(() => fadeCG.alpha, x => fadeCG.alpha = x, value, time);
+    }
+
+    public void GameOverSequence()
+    {
+        scoreText.text = _timerText.text;
+        DOTween.To(() => gameOverCG.alpha, x => gameOverCG.alpha = x, 1f, 1f);
     }
 }

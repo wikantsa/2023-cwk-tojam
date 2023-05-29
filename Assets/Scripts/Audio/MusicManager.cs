@@ -32,6 +32,11 @@ public class MusicManager : MonoBehaviour
         m_source.clip = Clips.First(c => c.Track == track).Clip;
         m_source.Play();
     }
+
+    public void StopTrack()
+    {
+        m_source.Stop();
+    }
 }
 
  [Serializable]

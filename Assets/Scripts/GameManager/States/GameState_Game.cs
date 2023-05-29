@@ -32,6 +32,7 @@ public class GameState_Game : GameState
         PlayerStateManager.Instance.ChangeState(EPlayerState.Idle);
         MainUI.Instance.FadeCanvas(0f, 1f);
         MainUI.Instance.StopTimer();
+        MusicManager.Instance.StopTrack();
     }
 }
 
