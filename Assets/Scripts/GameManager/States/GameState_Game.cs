@@ -14,6 +14,8 @@ public class GameState_Game : GameState
     {
         PlayerStateManager.Instance.ChangeState(EPlayerState.Alive);
         BotManager.Instance.NumberofEnemies = 25;
+        BotManager.Instance.IsPaused = false;
+        MainUI.Instance.FadeCanvas(1f, 1f);
     }
 
     protected override void UpdateState()
@@ -23,8 +25,9 @@ public class GameState_Game : GameState
 
     protected override void LeaveState(EGameState nextState)
     {
-        BotManager.Instance.NumberofEnemies = 0;
+        BotManager.Instance.IsPaused = true;
         PlayerStateManager.Instance.ChangeState(EPlayerState.Idle);
+        MainUI.Instance.FadeCanvas(0f, 1f);
     }
 }
 

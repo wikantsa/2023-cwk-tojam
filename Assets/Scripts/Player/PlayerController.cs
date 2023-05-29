@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool IsPaused;
+
     public float Speed = 5f;
     public bool JumpEnabled = false;
     public float JumpForce = 1f;
@@ -31,7 +33,6 @@ public class PlayerController : MonoBehaviour
     [Header("Invoke upon dashing")]
     public UnityEvent dashEvent;
 
-
     void Start()
     {
         m_body = transform;
@@ -41,6 +42,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (IsPaused)
+            return;
+
         m_Inputs = Vector3.zero;
         m_Inputs.x = Input.GetAxis("Horizontal");
         m_Inputs.z = Input.GetAxis("Vertical");

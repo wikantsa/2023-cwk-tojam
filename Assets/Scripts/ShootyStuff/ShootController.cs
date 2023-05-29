@@ -17,15 +17,21 @@ public class ShootController : MonoBehaviour
     [HideInInspector]
     public bool IsShooting;
 
+    private PlayerController m_PlayerController;
+
     // Start is called before the first frame update
     void Start()
     {
+        m_PlayerController = GetComponent<PlayerController>();
         m_Plane = new Plane(Vector3.up, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (m_PlayerController.IsPaused)
+            return;
+
         if (controllerMode)
         {
             if ((prevMousePosition - Input.mousePosition).sqrMagnitude > 2)

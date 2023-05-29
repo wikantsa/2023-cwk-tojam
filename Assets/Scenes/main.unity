@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.183874, g: 0.22875074, b: 0.3015534, a: 1}
+  m_IndirectSpecularColor: {r: 0.1838744, g: 0.22875129, b: 0.30155456, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1364,6 +1364,7 @@ MonoBehaviour:
   - {fileID: 259683176}
   - {fileID: 1833279716}
   - {fileID: 911679583}
+  IsPaused: 1
 --- !u!4 &392471371
 Transform:
   m_ObjectHideFlags: 0
@@ -2983,6 +2984,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8599043291807550605, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599043291807550605, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599043291807550605, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599043291807550605, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599043291807550605, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599043291807550605, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599043291807550605, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8865321034678961688, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: IsPaused
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8865321034678961690, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
       propertyPath: m_Name
       value: Robert-Alt

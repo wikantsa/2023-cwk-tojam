@@ -28,6 +28,7 @@ public class PlayerSurvival : MonoBehaviour
 
     private float m_InvulnerabilityCountdown;
 
+    private PlayerController m_PlayerController;
     private ShootController m_ShootController;
     private Coroutine m_FlashRoutine;
 
@@ -60,12 +61,16 @@ public class PlayerSurvival : MonoBehaviour
     void Start()
     {
         m_CurrentBatteryPower = BatteryPower;
+        m_PlayerController = GetComponent<PlayerController>();
         m_ShootController = GetComponent<ShootController>();
         m_Animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
+        if (m_PlayerController.IsPaused)
+            return;
+
         if(m_InvulnerabilityCountdown >= 0)
         {
             m_InvulnerabilityCountdown -= Time.deltaTime;
@@ -79,9 +84,7 @@ public class PlayerSurvival : MonoBehaviour
         }
         if(m_CurrentBatteryPower <= 0)
         {
-            GameStateManager.Instance.ChangeState(EGameState.GameOver);
-            gameObject.SetActive(false);
-            ExplosionManager.Instance.SpawnExplosion(transform.position, 3);
+            PlayerStateManager.Instance.ChangeState(EPlayerState.Dead);
         }
 
         if (m_ShootController.IsShooting)

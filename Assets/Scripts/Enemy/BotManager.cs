@@ -13,6 +13,8 @@ public class BotManager : MonoBehaviour
     public float SpawnCooldown;
     public GameObject[] SpawnPoints;
 
+    public bool IsPaused;
+
     private static BotManager instance = null;
     public static BotManager Instance
     {
@@ -54,6 +56,9 @@ public class BotManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (IsPaused)
+            return;
+
         timer -= Time.deltaTime;
         //spawn enemies if not enough
         if (timer < 0 && ActiveEnemies.Count < NumberofEnemies) {

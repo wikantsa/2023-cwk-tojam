@@ -734,6 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4385037966961934154}
   - component: {fileID: 4385037966961934156}
+  - component: {fileID: 1965185223}
   m_Layer: 5
   m_Name: accessories
   m_TagString: Untagged
@@ -772,6 +773,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4385037966961934155}
   m_CullTransparentMesh: 1
+--- !u!225 &1965185223
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385037966961934155}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &4385037967609370970
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4385037967609370973}
   - component: {fileID: 8983204384339756541}
+  - component: {fileID: 236322773}
   m_Layer: 5
   m_Name: progress_panel
   m_TagString: Untagged
@@ -820,6 +834,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4385037967609370970}
   m_CullTransparentMesh: 1
+--- !u!225 &236322773
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4385037967609370970}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &4385037967689550298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1049,11 @@ MonoBehaviour:
   laserCross: {fileID: 985358703607350050}
   laserRemains: {fileID: 7540110293791476252}
   _timerText: {fileID: 4385037965887358498}
+  canvasGroups:
+  - {fileID: 1975499616}
+  - {fileID: 1965185223}
+  - {fileID: 236322773}
+  - {fileID: 684403876}
 --- !u!1 &4441037059927515375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8706171861298133587}
   - component: {fileID: 6464383864030022938}
+  - component: {fileID: 1975499616}
   m_Layer: 5
   m_Name: player_info
   m_TagString: Untagged
@@ -1280,6 +1312,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4901305725629607669}
   m_CullTransparentMesh: 1
+--- !u!225 &1975499616
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901305725629607669}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &5140042007725903873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1659,7 @@ GameObject:
   - component: {fileID: 5583104842845938795}
   - component: {fileID: 5784012660997380743}
   - component: {fileID: 6273874638100290059}
+  - component: {fileID: 684403876}
   m_Layer: 5
   m_Name: current_weapon
   m_TagString: Untagged
@@ -1680,6 +1725,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &684403876
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331871787064408890}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8425571143415111934
 GameObject:
   m_ObjectHideFlags: 0

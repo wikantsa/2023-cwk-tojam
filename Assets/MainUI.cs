@@ -19,7 +19,7 @@ public class MainUI : MonoBehaviour
     public RectTransform itemTwo;
     public Image missileCross;
     public TextMeshProUGUI missileRemains;
-    
+
     public RectTransform itemThree;
     public Image laserCross;
     public TextMeshProUGUI laserRemains;
@@ -28,7 +28,22 @@ public class MainUI : MonoBehaviour
 
     public TextMeshProUGUI _timerText;
     public int secondsElapsed { get; set; } = 0;
-   
+
+    public List<CanvasGroup> canvasGroups;
+
+    public static MainUI Instance { get; private set; }
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
 
     private void Start() {
         batteryPowerBar.value = 0;
@@ -57,14 +72,14 @@ public class MainUI : MonoBehaviour
         switch (playerSurvival.CurrentlySelectedWeapon)
         {
             case 0:
-                currentlySelectedWeapon.position = new Vector3 (
+                currentlySelectedWeapon.position = new Vector3(
                     itemOne.position.x - 20,
                     itemOne.position.y,
                     itemOne.position.z
                 );
                 break;
             case 1:
-                currentlySelectedWeapon.position = new Vector3 (
+                currentlySelectedWeapon.position = new Vector3(
                     itemTwo.position.x - 20,
                     itemTwo.position.y,
                     itemTwo.position.z
@@ -90,5 +105,11 @@ public class MainUI : MonoBehaviour
         }
     }
 
-
+    public void FadeCanvas(float value, float time)
+    {
+        foreach (var canvas in canvasGroups)
+        {
+            DOTween.To(() => canvas.alpha, x => canvas.alpha = x, value, time);
+        }
+    }
 }
