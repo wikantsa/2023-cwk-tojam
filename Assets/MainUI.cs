@@ -9,7 +9,9 @@ public class MainUI : MonoBehaviour
 {
     public Slider batteryPowerBar;
     public PlayerSurvival playerSurvival;
-    
+
+    public RectTransform currentlySelectedWeapon;
+
     public RectTransform itemOne;
     public Image lemonCross;
     public TextMeshProUGUI lemonRemains;
@@ -51,6 +53,31 @@ public class MainUI : MonoBehaviour
             laserCross.enabled = true;
         laserRemains.text = $"{playerSurvival.GetItemPowerLevel(Power.Laser)}";
 
+        // set selected indicator
+        switch (playerSurvival.CurrentlySelectedWeapon)
+        {
+            case 0:
+                currentlySelectedWeapon.position = new Vector3 (
+                    itemOne.position.x - 20,
+                    itemOne.position.y,
+                    itemOne.position.z
+                );
+                break;
+            case 1:
+                currentlySelectedWeapon.position = new Vector3 (
+                    itemTwo.position.x - 20,
+                    itemTwo.position.y,
+                    itemTwo.position.z
+                );
+                break;
+            case 2:
+                currentlySelectedWeapon.position = new Vector3(
+                    itemThree.position.x - 20,
+                    itemThree.position.y,
+                    itemThree.position.z
+                );
+                break;
+        }
     }
 
     private IEnumerator GameTimeTracker()

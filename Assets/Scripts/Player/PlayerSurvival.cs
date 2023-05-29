@@ -53,6 +53,7 @@ public class PlayerSurvival : MonoBehaviour
 
     [HideInInspector]
     public Power PowerToEat;
+    public int CurrentlySelectedWeapon => (int)PowerToEat;
     private int currentPowerLevel = 9;
     
     // Start is called before the first frame update
