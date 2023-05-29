@@ -4460,30 +4460,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5714865369849288258, guid: 2df54f0fde1cc944493e042abf4078b3, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5714865369959359501, guid: 2df54f0fde1cc944493e042abf4078b3, type: 3}
-      propertyPath: Clips.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5714865369959359501, guid: 2df54f0fde1cc944493e042abf4078b3, type: 3}
-      propertyPath: Clips.Array.data[3].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a939d2a8f0c1e1547bfdff39ece68992, type: 3}
-    - target: {fileID: 5714865369959359501, guid: 2df54f0fde1cc944493e042abf4078b3, type: 3}
-      propertyPath: Clips.Array.data[4].Clip
-      value: 
-      objectReference: {fileID: 8300000, guid: b85d9298a5900da4a838ad1f9d27c068, type: 3}
-    - target: {fileID: 5714865369959359501, guid: 2df54f0fde1cc944493e042abf4078b3, type: 3}
-      propertyPath: Clips.Array.data[3].Action
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5714865369959359501, guid: 2df54f0fde1cc944493e042abf4078b3, type: 3}
-      propertyPath: Clips.Array.data[4].Action
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2df54f0fde1cc944493e042abf4078b3, type: 3}
 --- !u!1001 &1205222267
