@@ -32,6 +32,8 @@ public class MainUI : MonoBehaviour
     public List<CanvasGroup> canvasGroups;
     public CanvasGroup fadeCG;
 
+    private Coroutine timerRoutine;
+
     public static MainUI Instance { get; private set; }
     void Awake()
     {
@@ -48,7 +50,6 @@ public class MainUI : MonoBehaviour
 
     private void Start() {
         batteryPowerBar.value = 0;
-        StartCoroutine("GameTimeTracker");
     }
 
     // Update is called once per frame
@@ -94,6 +95,17 @@ public class MainUI : MonoBehaviour
                 );
                 break;
         }
+    }
+
+    public void StartTimer()
+    {
+        if (timerRoutine == null)
+            timerRoutine = StartCoroutine(GameTimeTracker());
+    }
+
+    public void StopTimer()
+    {
+        StopCoroutine(timerRoutine);
     }
 
     private IEnumerator GameTimeTracker()

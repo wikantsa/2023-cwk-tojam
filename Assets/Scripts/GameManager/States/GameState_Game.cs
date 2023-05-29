@@ -18,6 +18,7 @@ public class GameState_Game : GameState
         MainUI.Instance.FadeCanvas(1f, 1f);
         Camera.main.GetComponent<IsoCamera>().enabled = true;
         MusicManager.Instance.PlayTrack(MusicTrack.FunkyBattle);
+        MainUI.Instance.StartTimer();
     }
 
     protected override void UpdateState()
@@ -30,6 +31,7 @@ public class GameState_Game : GameState
         BotManager.Instance.IsPaused = true;
         PlayerStateManager.Instance.ChangeState(EPlayerState.Idle);
         MainUI.Instance.FadeCanvas(0f, 1f);
+        MainUI.Instance.StopTimer();
     }
 }
 
