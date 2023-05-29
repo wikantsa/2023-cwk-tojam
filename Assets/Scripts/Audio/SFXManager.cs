@@ -11,6 +11,8 @@ public class SFXManager : MonoBehaviour
     public List<ClipLookup> Clips;
     private List<AudioSource> m_sources;
 
+    private Dictionary<PlayerAction, AudioSource> m_actionSources = new Dictionary<PlayerAction, AudioSource>();
+
     public static SFXManager Instance { get; private set; }
     void Awake()
     {
@@ -33,12 +35,21 @@ public class SFXManager : MonoBehaviour
     {
         if(!Muted)
         {
-            AudioSource source = m_sources.FirstOrDefault(s => s.isPlaying == false);
+            var clip = Clips.First(c => c.Action == action).Clip;
+
+            AudioSource source = null;
+            m_actionSources.TryGetValue(action, out source);
+
+            if (source == null)
+            {
+                source = m_sources.FirstOrDefault(s => s.isPlaying == false);
+                m_actionSources.Add(action, source);
+            }
 
             if (source != null)
             {
                 source.volume = GlobalVolume;
-                source.clip = Clips.First(c => c.Action == action).Clip;
+                source.clip = clip;
                 source.Play();
             }
         }

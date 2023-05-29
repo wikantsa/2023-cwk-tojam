@@ -157,6 +157,7 @@ public class PlayerSurvival : MonoBehaviour
 
     void ReducePowerLevel(Power power)
     {
+        SFXManager.Instance.PlayPlayerSound(PlayerAction.PowerDown);
         currentPowerLevel--;
         m_PowerLevels[power]--;
 

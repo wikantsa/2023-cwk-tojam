@@ -30,6 +30,7 @@ public class MainUI : MonoBehaviour
     public int secondsElapsed { get; set; } = 0;
 
     public List<CanvasGroup> canvasGroups;
+    public CanvasGroup fadeCG;
 
     public static MainUI Instance { get; private set; }
     void Awake()
@@ -111,5 +112,10 @@ public class MainUI : MonoBehaviour
         {
             DOTween.To(() => canvas.alpha, x => canvas.alpha = x, value, time);
         }
+    }
+
+    public void UpdateFadeCG(float value, float time)
+    {
+        DOTween.To(() => fadeCG.alpha, x => fadeCG.alpha = x, value, time);
     }
 }

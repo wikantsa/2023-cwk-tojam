@@ -16,6 +16,8 @@ public class GameState_Game : GameState
         BotManager.Instance.NumberofEnemies = 25;
         BotManager.Instance.IsPaused = false;
         MainUI.Instance.FadeCanvas(1f, 1f);
+        Camera.main.GetComponent<IsoCamera>().enabled = true;
+        MusicManager.Instance.PlayTrack(MusicTrack.FunkyBattle);
     }
 
     protected override void UpdateState()
