@@ -4695,10 +4695,10 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.75
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -7350,6 +7350,26 @@ PrefabInstance:
       propertyPath: playerSurvival
       value: 
       objectReference: {fileID: 705156204}
+    - target: {fileID: 7416937448184833217, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416937448184833217, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220275599729824733, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220275599729824733, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220275599729824733, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
 --- !u!95 &1980727855 stripped
