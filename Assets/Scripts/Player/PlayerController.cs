@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -97,8 +98,9 @@ public class PlayerController : MonoBehaviour
             m_Rigidbody.AddForce(m_DashDirection * DashForce);
             m_DashTimer -= Time.fixedDeltaTime;
 
-            if (m_DashTimer <= 0)
+            if (m_DashTimer <= 0) {
                 m_TrailRenderer.emitting = false;
+            }
         }
     }
 }

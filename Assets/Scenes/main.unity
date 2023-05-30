@@ -3061,6 +3061,78 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: healEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: damageEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: healEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: damageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: healEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1646190501}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: damageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1646190501}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: healEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: healEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateFaceState
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: damageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: damageEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateFaceState
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1646190501}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateFaceState
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: constitution
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080982020339840347, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
+      propertyPath: constitutionEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8865321034678961690, guid: 10edc3b2f58d9f648a17bca330f4d50d, type: 3}
       propertyPath: m_Name
       value: Robert-Alt
@@ -6127,6 +6199,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 49e8270d6497e524eac8f059762aa69b, type: 3}
   m_PrefabInstance: {fileID: 1069865338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1646190501 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5815292504950358437, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+  m_PrefabInstance: {fileID: 1980727853}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aeb756d226633d4c91a8d5cbb63411e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1659567004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 49e8270d6497e524eac8f059762aa69b, type: 3}
@@ -7254,6 +7337,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1428404423, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428404424, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_text
+      value: Thanks for playing! Press SPACE to try again!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_text
+      value: "Credits:  Alex + Adam +  Bryan + Oscar  + \nSofia + Sean + Zeeshan\n\n((
+        All emojis designed by OpenMoji \u2013 the open-source emoji and icon project.
+        License: CC BY-SA 4.0 ))"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_fontSize
+      value: 44.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_fontStyle
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 44.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489160332137002392, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4385037967701347372, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
       propertyPath: m_Name
       value: mainUI
@@ -7350,6 +7479,42 @@ PrefabInstance:
       propertyPath: playerSurvival
       value: 
       objectReference: {fileID: 705156204}
+    - target: {fileID: 7416937448184833217, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416937448184833217, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708696684832135211, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 355.402
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708696684832135211, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 209.279
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708696684832135211, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708696684832135211, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -176.785
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220275599729824733, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220275599729824733, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220275599729824733, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
 --- !u!95 &1980727855 stripped

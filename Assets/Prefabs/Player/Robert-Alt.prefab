@@ -408,6 +408,37 @@ MonoBehaviour:
   - {fileID: 2406630250680902561}
   m_Laser: {fileID: 4253435271692908900}
   PowerToEat: 0
+  mainUI: {fileID: 0}
+  damageEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5815292504950358437, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+        m_TargetAssemblyTypeName: MainUI, Assembly-CSharp
+        m_MethodName: UpdateFaceState
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: damage
+          m_BoolArgument: 0
+        m_CallState: 2
+  healEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5815292504950358437, guid: f76e562d83bd5184092587f4fed98df4, type: 3}
+        m_TargetAssemblyTypeName: MainUI, Assembly-CSharp
+        m_MethodName: UpdateFaceState
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: heal
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2764740490889136243
 MonoBehaviour:
   m_ObjectHideFlags: 0

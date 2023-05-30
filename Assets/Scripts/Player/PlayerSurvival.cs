@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public enum Power
 {
@@ -41,7 +41,6 @@ public class PlayerSurvival : MonoBehaviour
     //public Dictionary<Power, int> GetPowerLevels => m_PowerLevels;
     public int GetItemPowerLevel(Power power) => m_PowerLevels[power];
 
-
     public List<BaseShooter> m_Level0BulletsToRemove;
     public List<BaseShooter> m_Level1BulletsToRemove;
     public List<BaseShooter> m_Level2BulletsToRemove;
@@ -56,7 +55,11 @@ public class PlayerSurvival : MonoBehaviour
     public Power PowerToEat;
     public int CurrentlySelectedWeapon => (int)PowerToEat;
     private int currentPowerLevel = 9;
-    
+
+    public UnityEvent damageEvent;
+    public UnityEvent healEvent;
+    public UnityEvent constitutionEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +93,7 @@ public class PlayerSurvival : MonoBehaviour
         if (m_ShootController.IsShooting)
         {
             m_CurrentBatteryPower -= (BatteryDrainRate + currentPowerLevel * ShootDrainRateMultiplier) * Time.deltaTime;
+            constitutionEvent.Invoke();
         }
         else
         {
@@ -102,6 +106,8 @@ public class PlayerSurvival : MonoBehaviour
             {
                 ReducePowerLevel(PowerToEat);
                 m_CurrentBatteryPower = Mathf.Clamp(m_CurrentBatteryPower + BatteryPowerGainedOnEat, 0, BatteryPower);
+                //healEvent.Invoke();
+                damageEvent.Invoke();
 
                 if (m_PowerLevels[PowerToEat] == 0)
                 {
@@ -235,6 +241,8 @@ public class PlayerSurvival : MonoBehaviour
             m_CurrentBatteryPower -= damage;
             m_InvulnerabilityCountdown = InvulnerabilityWindow;
             m_FlashRoutine = StartCoroutine(FlashCharacter());
+            //damageEvent.Invoke();
+            healEvent.Invoke();
         }
     }
 
@@ -247,6 +255,8 @@ public class PlayerSurvival : MonoBehaviour
             m_CurrentBatteryPower -= damage;
             m_InvulnerabilityCountdown = InvulnerabilityWindow;
             m_FlashRoutine = StartCoroutine(FlashCharacter());
+            //damageEvent.Invoke();
+            healEvent.Invoke();
         }
     }
 
