@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,9 +10,12 @@ public class TitleScreenController : MonoBehaviour
 {
     public RectTransform _cursor = null;
     public RectTransform _start = null;
+    public RectTransform _how = null;
+    public RectTransform questionIcon = null;
     public RectTransform _exit = null;
     public List<RectTransform> cursorPositions = null;
 
+    public GameObject robertTheRobot;
     public int TargetSceneIndex = 4;
 
     private float m_input = 0f;
@@ -20,8 +25,7 @@ public class TitleScreenController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         // set default cursor position
-        if (_cursor)
-        {
+        if (_cursor) {
             _cursor.anchoredPosition = cursorPositions[cursorPointer].anchoredPosition;
             StartCoroutine("HandleTitleInputs");
         }
@@ -29,17 +33,25 @@ public class TitleScreenController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            if (cursorPointer == 0)
-                LoadScene(TargetSceneIndex);
-            else
-                ExitGame();
+        if (Input.GetKeyDown(KeyCode.Space)) { 
+            switch (cursorPointer)
+            {
+                case 0:
+                    LoadScene(TargetSceneIndex);
+                    break;
+                case 1:
+                    HowToPlay();
+                    break;
+                case 2:
+                    ExitGame();
+                    break;
+            }
+        }
     }
 
     private IEnumerator HandleTitleInputs()
     {
-        while (true)
-        {
+        while (true) {
             yield return new WaitForSeconds(DELAY);
 
             // when the player taps or holds down, move cursor down to next option
@@ -57,13 +69,41 @@ public class TitleScreenController : MonoBehaviour
         }
     }
 
-    public void LoadScene(int index)
+    private Vector3 robertBaseRotation = new Vector3(0f, 240f, 0f);
+    private Vector3 robertBasePosition = new Vector3(7f, -5f, 0.04f);
+    private Vector3 robertsWatchingRotation = new Vector3(-18.2f, 286.02f, 1f);
+    private Vector3 robertsWatchingPosition= new Vector3(6f, -6f, -0.6f);
+
+    public void HowToPlay() {
+        _how.gameObject.SetActive(true);
+        questionIcon.gameObject.SetActive(true);
+
+        questionIcon.DOShakeAnchorPos(99f, 15, 5, 45, false, true, ShakeRandomnessMode.Harmonic);
+
+        robertTheRobot.transform.DOMove(robertsWatchingPosition, 0.3f, false);
+        robertTheRobot.transform.DORotate(robertsWatchingRotation, 0.3f, RotateMode.Fast);
+    }
+
+    public void CloseHowTo() {
+        _how.gameObject.SetActive(false);
+        questionIcon.gameObject.SetActive(false);
+
+        robertTheRobot.transform.DORotate(robertBaseRotation, 0.3f, RotateMode.Fast);
+        robertTheRobot.transform.DOMove(robertBasePosition, 0.3f, false);
+    }
+
+    private IEnumerator WiggleQuestion()
     {
+        while (true) {
+
+            yield return null;
+        }
+    }
+    public void LoadScene(int index) {
         SceneManager.LoadScene(TargetSceneIndex);
     }
 
-    public void ExitGame()
-    {
+    public void ExitGame() {
         Application.Quit();
     }
 }

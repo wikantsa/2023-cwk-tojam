@@ -98,25 +98,13 @@ public class MainUI : MonoBehaviour
         switch (playerSurvival.CurrentlySelectedWeapon)
         {
             case 0:
-                currentlySelectedWeapon.position = new Vector3(
-                    itemOne.position.x - 20,
-                    itemOne.position.y,
-                    itemOne.position.z
-                );
+                currentlySelectedWeapon.position = itemOne.position; 
                 break;
             case 1:
-                currentlySelectedWeapon.position = new Vector3(
-                    itemTwo.position.x - 20,
-                    itemTwo.position.y,
-                    itemTwo.position.z
-                );
+                currentlySelectedWeapon.position = itemTwo.position;
                 break;
             case 2:
-                currentlySelectedWeapon.position = new Vector3(
-                    itemThree.position.x - 20,
-                    itemThree.position.y,
-                    itemThree.position.z
-                );
+                currentlySelectedWeapon.position = itemThree.position;
                 break;
         }
     }
