@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,39 +32,50 @@ public class TitleScreenController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) { 
-            switch (cursorPointer)
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (_how.gameObject.activeSelf)
             {
-                case 0:
-                    LoadScene(TargetSceneIndex);
-                    break;
-                case 1:
-                    HowToPlay();
-                    break;
-                case 2:
-                    ExitGame();
-                    break;
+                CloseHowTo();
+                return;
+            }
+            else {
+                switch (cursorPointer)
+                {
+                    case 0:
+                        LoadScene(TargetSceneIndex);
+                        break;
+                    case 1:
+                        HowToPlay();
+                        break;
+                    case 2:
+                        ExitGame();
+                        break;
+                }
             }
         }
     }
 
     private IEnumerator HandleTitleInputs()
     {
-        while (true) {
+        while (true)
+        {
             yield return new WaitForSeconds(DELAY);
 
             // when the player taps or holds down, move cursor down to next option
             // when the player taps or holds up, move cursor up to the next option
             // when player hits the confirmation button, exit or start game
-            m_input = Input.GetAxis("Vertical");
+            if (_how.gameObject.activeSelf == false)
+            {
+                m_input = Input.GetAxis("Vertical");
 
-            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || m_input < 0f)
-                cursorPointer = cursorPointer < cursorPositions.Count - 1 ? ++cursorPointer : 0;
+                if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || m_input < 0f)
+                    cursorPointer = cursorPointer < cursorPositions.Count - 1 ? ++cursorPointer : 0;
 
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || m_input > 0f)
-                cursorPointer = cursorPointer > 0 ? --cursorPointer : cursorPositions.Count - 1;
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || m_input > 0f)
+                    cursorPointer = cursorPointer > 0 ? --cursorPointer : cursorPositions.Count - 1;
 
-            _cursor.position = cursorPositions[cursorPointer].position;
+                _cursor.position = cursorPositions[cursorPointer].position;
+            }
         }
     }
 
@@ -92,13 +102,6 @@ public class TitleScreenController : MonoBehaviour
         robertTheRobot.transform.DOMove(robertBasePosition, 0.3f, false);
     }
 
-    private IEnumerator WiggleQuestion()
-    {
-        while (true) {
-
-            yield return null;
-        }
-    }
     public void LoadScene(int index) {
         SceneManager.LoadScene(TargetSceneIndex);
     }
