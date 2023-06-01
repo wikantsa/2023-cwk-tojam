@@ -42,6 +42,7 @@ public class TitleScreenController : MonoBehaviour
                 switch (cursorPointer)
                 {
                     case 0:
+                        StopAllCoroutines();
                         LoadScene(TargetSceneIndex);
                         break;
                     case 1:
