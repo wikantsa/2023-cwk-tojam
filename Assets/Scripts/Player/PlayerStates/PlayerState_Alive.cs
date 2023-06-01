@@ -12,7 +12,7 @@ public class PlayerState_Alive : PlayerState
 
     protected override void EnterState(EPlayerState prevState)
     {
-
+        m_playerStateManager.gameObject.GetComponent<PlayerController>().IsPaused = false;
     }
 
     protected override void UpdateState()

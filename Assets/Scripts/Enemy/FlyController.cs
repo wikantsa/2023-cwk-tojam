@@ -56,6 +56,11 @@ public class FlyController : MonoBehaviour, ITargetSettable
 
     void FixedUpdate() {
 
+        if (!target.activeSelf)
+        {
+            return;
+        }
+
         Vector3 distanceVec = (target.transform.position-rb.position);
         distanceVec.y=0;
         float distance = distanceVec.magnitude;

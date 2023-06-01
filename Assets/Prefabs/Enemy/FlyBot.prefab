@@ -64,6 +64,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 2
+  ExplosionScale: 3
+  CharacterRenderers: []
+  SkinnedRenderers:
+  - {fileID: 8067637723632219148}
+  - {fileID: 3012200813740522260}
 --- !u!114 &7686005102803272517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68158ab220e3ea44384fa565e0e1132b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 5
 --- !u!114 &7686005102803272516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab9c06a4981e4c4dad97c25903407fc, type: 3}
+--- !u!137 &3012200813740522260 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8597900983186045372, guid: 3ab9c06a4981e4c4dad97c25903407fc, type: 3}
+  m_PrefabInstance: {fileID: 6817497442878767784}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5935168286649057273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ab9c06a4981e4c4dad97c25903407fc, type: 3}
@@ -225,5 +235,10 @@ Animator:
 --- !u!4 &6419358660506494275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3ab9c06a4981e4c4dad97c25903407fc, type: 3}
+  m_PrefabInstance: {fileID: 6817497442878767784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8067637723632219148 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3560830040647136932, guid: 3ab9c06a4981e4c4dad97c25903407fc, type: 3}
   m_PrefabInstance: {fileID: 6817497442878767784}
   m_PrefabAsset: {fileID: 0}

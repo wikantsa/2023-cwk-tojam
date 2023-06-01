@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using TMPro;
 
 public enum EGameState
@@ -16,8 +17,6 @@ public enum EGameState
 public class GameStateManager : MonoBehaviour
 {
     private static GameStateManager instance = null;
-
-    public TMPro.TextContainer TextContainer;
    
     private Dictionary<EGameState, GameState> m_gameStateDictionary;    //maps the dance states to the dance state enum for reference
 
@@ -27,6 +26,9 @@ public class GameStateManager : MonoBehaviour
     private EGameState m_nextStateIndex;                                  //enum reference to upcoming dance state
 
     private bool m_initialized = false;
+
+    public PlayableDirector IntroPlayable;
+    public bool SkipIntro;
 
     public EGameState CurrentStateIndex
     {

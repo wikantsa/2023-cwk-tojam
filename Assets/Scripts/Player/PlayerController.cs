@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool IsPaused;
+
     public float Speed = 5f;
+    public bool JumpEnabled = false;
     public float JumpForce = 1f;
     public float DashForce = 1f;
     public float DashDuration = 1f;
@@ -30,7 +34,6 @@ public class PlayerController : MonoBehaviour
     [Header("Invoke upon dashing")]
     public UnityEvent dashEvent;
 
-
     void Start()
     {
         m_body = transform;
@@ -40,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (IsPaused)
+            return;
+
         m_Inputs = Vector3.zero;
         m_Inputs.x = Input.GetAxis("Horizontal");
         m_Inputs.z = Input.GetAxis("Vertical");
@@ -49,7 +55,7 @@ public class PlayerController : MonoBehaviour
             m_Inputs = Quaternion.AngleAxis(45f, Vector3.up) * m_Inputs;
         }
 
-        if (Input.GetButtonDown("Fire2") && m_DashCooldown <= 0 && m_DashTimer <= 0 && m_Inputs != Vector3.zero)
+        if (Input.GetButtonDown("Fire2") && m_DashCooldown <= 0 && m_DashTimer <= 0)
         {
             SFXManager.Instance.PlayPlayerSound(PlayerAction.Dash);
             m_DashTimer = DashDuration;
@@ -57,11 +63,6 @@ public class PlayerController : MonoBehaviour
             m_DashDirection = m_Inputs.magnitude > 0 ? m_Inputs.normalized : transform.forward;
             m_TrailRenderer.emitting = true;
             dashEvent.Invoke();
-        }
-            
-        if (Input.GetKeyDown(KeyCode.Space) && m_body.position.y <= 1.05f)
-        {
-            m_Rigidbody.AddForce(Vector3.up * JumpForce);
         }
 
         if(m_DashCooldown > 0)
@@ -97,8 +98,9 @@ public class PlayerController : MonoBehaviour
             m_Rigidbody.AddForce(m_DashDirection * DashForce);
             m_DashTimer -= Time.fixedDeltaTime;
 
-            if (m_DashTimer <= 0)
+            if (m_DashTimer <= 0) {
                 m_TrailRenderer.emitting = false;
+            }
         }
     }
 }

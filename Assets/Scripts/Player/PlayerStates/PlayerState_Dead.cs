@@ -11,12 +11,14 @@ public class PlayerState_Dead : PlayerState
 
     protected override void EnterState(EPlayerState prevState)
     {
-
+        GameStateManager.Instance.ChangeState(EGameState.GameOver);
+        m_playerStateManager.gameObject.SetActive(false);
+        ExplosionManager.Instance.SpawnExplosion(m_playerStateManager.transform.position, 3);
     }
 
     protected override void UpdateState()
     {
-        GameStateManager.Instance.ChangeState(EGameState.End);
+
     }
 
     protected override void LeaveState(EPlayerState nextState)

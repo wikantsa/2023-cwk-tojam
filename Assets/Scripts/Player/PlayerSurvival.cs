@@ -1,28 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public enum Power
+{
+    Bullets = 0,
+    Missiles = 1,
+    Laser = 2
+}
+
 
 public class PlayerSurvival : MonoBehaviour
 {
-    public enum Power
-    {
-        Bullets = 0,
-        Missiles = 1,
-        Laser = 2
-    }
-
+ 
     public float BatteryPower = 100;
     public float InvulnerabilityWindow = 1f;
     public float BatteryDrainRate = 1f;
+    public float ShootDrainRateMultiplier = 1f;
     public float BatteryPowerGainedOnEat = 50;
 
     public SkinnedMeshRenderer[] CharacterRenderers;
+    Animator m_Animator;
 
     private float m_CurrentBatteryPower;
     public float GetCurrentBatteryPower => m_CurrentBatteryPower;
 
     private float m_InvulnerabilityCountdown;
 
+    private PlayerController m_PlayerController;
     private ShootController m_ShootController;
     private Coroutine m_FlashRoutine;
 
@@ -32,6 +38,8 @@ public class PlayerSurvival : MonoBehaviour
         { Power.Missiles, 3 },
         { Power.Laser, 3 }
     };
+    //public Dictionary<Power, int> GetPowerLevels => m_PowerLevels;
+    public int GetItemPowerLevel(Power power) => m_PowerLevels[power];
 
     public List<BaseShooter> m_Level0BulletsToRemove;
     public List<BaseShooter> m_Level1BulletsToRemove;
@@ -45,16 +53,27 @@ public class PlayerSurvival : MonoBehaviour
 
     [HideInInspector]
     public Power PowerToEat;
+    public int CurrentlySelectedWeapon => (int)PowerToEat;
+    private int currentPowerLevel = 9;
+
+    public UnityEvent damageEvent;
+    public UnityEvent healEvent;
+    public UnityEvent constitutionEvent;
 
     // Start is called before the first frame update
     void Start()
     {
         m_CurrentBatteryPower = BatteryPower;
+        m_PlayerController = GetComponent<PlayerController>();
         m_ShootController = GetComponent<ShootController>();
+        m_Animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
+        if (m_PlayerController.IsPaused)
+            return;
+
         if(m_InvulnerabilityCountdown >= 0)
         {
             m_InvulnerabilityCountdown -= Time.deltaTime;
@@ -68,10 +87,15 @@ public class PlayerSurvival : MonoBehaviour
         }
         if(m_CurrentBatteryPower <= 0)
         {
-            Destroy(gameObject);
+            PlayerStateManager.Instance.ChangeState(EPlayerState.Dead);
         }
 
         if (m_ShootController.IsShooting)
+        {
+            m_CurrentBatteryPower -= (BatteryDrainRate + currentPowerLevel * ShootDrainRateMultiplier) * Time.deltaTime;
+            constitutionEvent.Invoke();
+        }
+        else
         {
             m_CurrentBatteryPower -= BatteryDrainRate * Time.deltaTime;
         }
@@ -82,6 +106,8 @@ public class PlayerSurvival : MonoBehaviour
             {
                 ReducePowerLevel(PowerToEat);
                 m_CurrentBatteryPower = Mathf.Clamp(m_CurrentBatteryPower + BatteryPowerGainedOnEat, 0, BatteryPower);
+                //healEvent.Invoke();
+                damageEvent.Invoke();
 
                 if (m_PowerLevels[PowerToEat] == 0)
                 {
@@ -137,6 +163,8 @@ public class PlayerSurvival : MonoBehaviour
 
     void ReducePowerLevel(Power power)
     {
+        SFXManager.Instance.PlayPlayerSound(PlayerAction.PowerDown);
+        currentPowerLevel--;
         m_PowerLevels[power]--;
 
         switch (power)
@@ -162,6 +190,8 @@ public class PlayerSurvival : MonoBehaviour
                     {
                         shooter.isDisabled = true;
                     }
+
+                    m_Animator.SetBool("SingleArm", true);
                 }
                 break;
             case Power.Missiles:
@@ -211,6 +241,8 @@ public class PlayerSurvival : MonoBehaviour
             m_CurrentBatteryPower -= damage;
             m_InvulnerabilityCountdown = InvulnerabilityWindow;
             m_FlashRoutine = StartCoroutine(FlashCharacter());
+            //damageEvent.Invoke();
+            healEvent.Invoke();
         }
     }
 
@@ -223,6 +255,8 @@ public class PlayerSurvival : MonoBehaviour
             m_CurrentBatteryPower -= damage;
             m_InvulnerabilityCountdown = InvulnerabilityWindow;
             m_FlashRoutine = StartCoroutine(FlashCharacter());
+            //damageEvent.Invoke();
+            healEvent.Invoke();
         }
     }
 
@@ -230,7 +264,7 @@ public class PlayerSurvival : MonoBehaviour
     {
         while (true)
         {
-            SetFlashStrength(1);
+            SetFlashStrength(0.5f);
             yield return new WaitForSeconds(0.1f);
             SetFlashStrength(0);
             yield return new WaitForSeconds(0.1f);

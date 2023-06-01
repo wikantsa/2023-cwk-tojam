@@ -6,7 +6,6 @@ public class Missile : BaseBullet
 {
     Transform m_spawner;
     Rigidbody m_rigidBody;
-    public Animator m_animator;
     public TrailRenderer m_trailRenderer;
     public List<MeshRenderer> m_renderers;
 
@@ -48,17 +47,14 @@ public class Missile : BaseBullet
 
         if (target != null)
         {
-            float singleStep = rotateSpeed * Time.fixedDeltaTime;
-
             var missilePos = transform.position;
             var targetPos = target.transform.position;
             targetPos.y += 0.5f;
-            var aimDirection = targetPos - missilePos;
+            var aimDirection = (targetPos - missilePos).normalized;
 
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, aimDirection, singleStep, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
-
-            m_rigidBody.AddForce(transform.forward * travelSpeed);
+            Vector3 adjustedVector = Vector3.Slerp(transform.forward, aimDirection, rotateSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.LookRotation(adjustedVector);
+            m_rigidBody.MovePosition(transform.position + (adjustedVector * travelSpeed * Time.fixedDeltaTime));
         }
         else
         {
@@ -107,9 +103,10 @@ public class Missile : BaseBullet
             isActive = false;
             m_rigidBody.velocity = Vector3.zero;
             trigger.enabled = false;
-            m_animator.SetTrigger("Explode");
             timer = despawnTime;
             isExploded = true;
+
+            ExplosionManager.Instance.SpawnExplosion(transform.position + Vector3.up * 0.5f, 2);
 
             foreach (var renderer in m_renderers)
                 renderer.enabled = false;

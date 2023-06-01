@@ -33,12 +33,18 @@ public class BotController : MonoBehaviour, ITargetSettable
     // Update is called once per frame
     void Update()
     {
-        if (target != null){
+        if (target != null && target.activeSelf){
             agent.SetDestination(target.transform.position);
         }
     }
 
     void FixedUpdate() {
+
+        if (!target.activeSelf)
+        {
+            return;
+        }
+
         Vector3 directionVector = (agent.steeringTarget-rb.position).normalized;
         //rotate
         Quaternion newRotation = Quaternion.LookRotation(directionVector, Vector3.up);

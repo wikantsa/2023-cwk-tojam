@@ -41,6 +41,7 @@ public class ExplosionManager : MonoBehaviour
             GameObject.Instantiate(m_ExplosionPrefab, transform);
         }
 
+        SFXManager.Instance.PlayPlayerSound(PlayerAction.Explosion);
         transform.GetChild(0).GetComponent<Explosion>().Activate(position, scale);
     }
 }
