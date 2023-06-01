@@ -12,7 +12,7 @@ public class FlyController : MonoBehaviour, ITargetSettable
     private float attackDelay;
     public FlyState state;
     private Vector3 startPosition;
-
+    private bool JustHit;
 
     public GameObject target;
     public float diveDistance;
@@ -46,6 +46,7 @@ public class FlyController : MonoBehaviour, ITargetSettable
     // Start is called before the first frame update
     void Start()
     {
+        JustHit = false;
         rb = this.GetComponent<Rigidbody>();
     }
 
@@ -112,6 +113,10 @@ public class FlyController : MonoBehaviour, ITargetSettable
         directionVector.y = 0;
         directionVector.Normalize();
         //move
+        if (JustHit) {
+            directionVector = - directionVector;
+            JustHit = false;
+        }
         rb.MovePosition(rb.position + (directionVector * diveSpeed * Time.fixedDeltaTime));
         //move down unless floor
         RaycastHit[] hits = Physics.RaycastAll(rb.position, Vector3.down);
@@ -135,6 +140,10 @@ public class FlyController : MonoBehaviour, ITargetSettable
         rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, newRotation, turnSpeed));
 
         //move
+        if (JustHit) {
+            directionVector = - directionVector;
+            JustHit = false;
+        }
         rb.MovePosition(rb.position + (directionVector * speed * Time.fixedDeltaTime));
     }
 
@@ -142,8 +151,7 @@ public class FlyController : MonoBehaviour, ITargetSettable
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bullet") {
-            Vector3 directionVector = (rb.position- target.transform.position).normalized;
-            directionVector.y = 0;
+            JustHit = true;
         }
         if (other.tag == "Player" && state == FlyState.Dive) {
             // CHANGE TO Reset and fly away
